@@ -1,2 +1,9 @@
-<h1>Photos#new</h1>
-<p>Find me in app/views/photos/new.html.erb</p>
+<%= simple_form_for(@photo) do |f| %>
+  <%= f.input :caption_title %>
+  <%= f.input :caption_description %>
+  <%= f.input :image_location %>
+  <%= f.input :image_location_cache, as: :hidden %>
+  <%= f.input :category %>
+  <%= f.input :front_page %>
+  <%= f.submit %>
+<% end %>

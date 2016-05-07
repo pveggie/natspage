@@ -1,2 +1,10 @@
-<h1>Photos#index</h1>
-<p>Find me in app/views/photos/index.html.erb</p>
+<%= link_to "Add photo", new_photo_path %>
+
+<div>
+<% @photos.each do |photo| %>
+
+<%= image_tag(photo.image_location) %>
+<%= photo.caption_title %>
+<%= photo.caption_description %>
+<% end %>
+</div>
