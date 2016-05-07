@@ -17,8 +17,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'ruby_gallery'
-gem 'cloudinary'
 gem 'carrierwave'
+gem 'cloudinary'
+
 
 group :development, :test do
   gem 'binding_of_caller'
