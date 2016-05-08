@@ -1,4 +1,4 @@
-.photo-holder {
+.gallery {
   height: 70vh;
   overflow: visible;
   white-space: nowrap;
@@ -6,19 +6,38 @@
   align-items: center;
 }
 
-.photo {
-  overflow: hidden;
-  // background-size: cover;
-  max-height: 100%;
+.photo-holder {
+  margin: 20px 5px;
+  height: 500px;
+  position: relative;
   flex: 0 0 auto;
-  margin: 10px;
+  // padding: 0px;
+
+  // z-index: 10;
+
+  .photo {
+    overflow: hidden;
+    // background-size: cover;
+    position: absolute;
+    bottom: 0px;
+
+    // z-index: 0;
+  }
 
   .caption {
-    margin-top: -60px;
+    width: 100%;
+    min-height: 70px;
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    color: $gray-light;
     z-index: 2;
+    background: black;
+    opacity: 0.8;
+    transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
 
     h5 {
-      margin-bottom: 0px;
+      margin: 0px;
     }
   }
 }
