@@ -1,13 +1,15 @@
 <%= link_to "Add photo", new_photo_path %>
-<div class="photo-holder">
+<div class="gallery">
   <% @photos.each do |photo| %>
-    <div class="photo">
+    <div class="photo-holder">
 
-      <%= image_tag(photo.image_location, class: photo)%>
-        <div class="caption">
+      <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, height: 500, crop: :scale)%>
+        <div id="photo-caption" class="caption hidden">
           <h5><%= photo.caption_title %></h5>
           <p><%= photo.caption_description %></p>
         </div>
     </div>
   <% end %>
 </div>
+
+
