@@ -2,6 +2,10 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 
+  String.prototype.isEmpty = function() {
+    return (this.length === 0 || !this.trim());
+  };
+
   $(".photo-holder").mouseover(function(event){
     // Show caption on hover
     target = $(this).children('#photo-caption')
