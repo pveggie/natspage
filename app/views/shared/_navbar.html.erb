@@ -1,12 +1,14 @@
 <div class="navbar navbar-fixed">
-  <h1>Natalie Lunt Photography</h1>
-  <div class="tabs">
+  <div class="navbar-logo">
+    <h1><%= "Natalie Lunt Photography" %></h1>
+  </div>
+  <div class="navbar-links tabs">
     <ul class="list-inline">
-      <li>Home</li>
-      <li>Portraits</li>
-      <li>Concerts</li>
-      <li>Other</li>
-      <li>Contact</li>
+      <li><%= link_to "Home", "#" %></li>
+      <li><%= link_to "Portraits", "#" %></li>
+      <li><%= link_to "Concerts", "#" %></li>
+      <li><%= link_to "Other", "#" %></li>
+      <li><%= link_to "Contact", "#" %></li>
     </ul>
   </div>
 
@@ -16,9 +18,11 @@
       <div class="dropdown">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
-          <li><a href="#">Some mobile link</a></li>
-          <li><a href="#">Other one</a></li>
-          <li><a href="#">Other one</a></li>
+          <li><%= link_to "Home", "#" %></li>
+          <li><%= link_to "Portraits", "#" %></li>
+          <li><%= link_to "Concerts", "#" %></li>
+          <li><%= link_to "Other", "#" %></li>
+          <li><%= link_to "Contact", "#" %></li>
         </ul>
       </div>
     </div>

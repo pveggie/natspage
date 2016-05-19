@@ -1,0 +1,43 @@
+.gallery {
+  height: 70vh;
+  overflow: visible;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.photo-holder {
+  margin: 20px 5px;
+  height: 500px;
+  position: relative;
+  flex: 0 0 auto;
+  // padding: 0px;
+
+  // z-index: 10;
+
+  .photo {
+    overflow: hidden;
+    // background-size: cover;
+    position: absolute;
+    bottom: 0px;
+
+    // z-index: 0;
+  }
+
+  .caption {
+    width: 100%;
+    min-height: 70px;
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    color: $gray-light;
+    z-index: 2;
+    background: black;
+    opacity: 0.8;
+    transition: all 1s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+
+    h5 {
+      margin: 0px;
+    }
+  }
+}

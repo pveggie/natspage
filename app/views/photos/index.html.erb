@@ -1,17 +1,30 @@
-<div class="gallery">
-  <% @photos.each do |photo| %>
-    <div class="photo-holder">
+<div class="container">
+  <div class="row">
 
-      <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, height: 500, crop: :scale)%>
+    <div class="gallery">
 
-      <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
-        <div id="photo-caption" class="caption hidden">
-          <h5><%= photo.caption_title %></h5>
-          <p><%= photo.caption_description %></p>
+      <% @photos.each do |photo| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="photo-holder">
+
+            <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo)%>
+
+<!--             <div class="photo-holder" style="background-image: url('<%= image_url photo.image_location %>');"> -->
+
+              <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
+                <div id="photo-caption" class="caption hidden">
+                  <h5><%= photo.caption_title %></h5>
+                  <p><%= photo.caption_description %></p>
+                </div>
+              <% end %>
+
+          </div>
         </div>
       <% end %>
+
     </div>
-  <% end %>
+
+  </div>
 </div>
 
 
