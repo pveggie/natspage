@@ -2,6 +2,19 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 
+  $(function(){
+
+    $('#masonry-grid').masonry({
+      itemSelector: '.grid-item',
+      columnWidth: function( containerWidth ) {
+        console.log(containerWidth);
+        return containerWidth / 3;
+      },
+      // gutterWidth: 10,
+      isFitWidth: true,
+    });
+  });
+
   String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
   };

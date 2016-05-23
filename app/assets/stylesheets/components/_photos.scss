@@ -1,16 +1,30 @@
-.gallery {
-  max-width: 100%;
-  margin: 0px 50px;
+#masonry-grid {
+  width: 100%;
+  clear: both;
 }
 
-.clearable-md-4th:nth-child(3n+1) {
-  clear: left;
+.clearfix:before, .clearfix:after {
+  content: ""; display: table;
 }
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  zoom: 1; }
 
+.grid-item {
+  width: 33%;
+  margin-bottom: 10px
+ }
+
+ .centered {
+  margin: 0 auto;
+ }
+
+//
 .photo-holder {
   width: 100%;
   position: relative;
-  margin: 10px 0;
 
   img {
       width: 100%;
