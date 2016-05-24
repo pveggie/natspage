@@ -8,9 +8,12 @@ $( document ).ready(function() {
       itemSelector: '.grid-item',
       columnWidth: function( containerWidth ) {
         console.log(containerWidth);
+        if (containerWidth > 750) {
         return containerWidth / 3;
+      } else {
+        return containerWidth;
+      }
       },
-      // gutterWidth: 10,
       isFitWidth: true,
     });
   });

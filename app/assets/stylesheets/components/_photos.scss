@@ -1,25 +1,47 @@
+//***********************************
+// RESPONSIVE VIEW
+//***********************************
+
+//1 column for mobile
 #masonry-grid {
   width: 100%;
-  clear: both;
 }
-
-.clearfix:before, .clearfix:after {
-  content: ""; display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  zoom: 1; }
 
 .grid-item {
-  width: 33%;
-  margin-bottom: 10px
- }
+  width: 100%;
+}
 
- .centered {
-  margin: 0 auto;
- }
+//Masonry 3 column display for larger devices
+@media (min-width: $screen-md-min) {
+  #masonry-grid {
+    clear: both;
+    //to go with margins added on right for each element in 3 col display
+    margin-left: 10px;
+  }
+
+  #masonry-grid {
+  // width: 100%;
+    clear: both;
+  }
+
+  .clearfix:before, .clearfix:after {
+    content: ""; display: table;
+  }
+  .clearfix:after {
+    clear: both;
+  }
+  .clearfix {
+    zoom: 1; }
+
+  .grid-item {
+    width: calc(100%/3 - 10px);
+    margin-bottom: 10px;
+   }
+}
+
+//*********************//
+// PHOTO CARD
+//*********************//
 
 //
 .photo-holder {
@@ -51,3 +73,5 @@
   }
 
 }
+
+

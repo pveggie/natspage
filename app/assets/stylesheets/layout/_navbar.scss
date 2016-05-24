@@ -5,9 +5,13 @@
   transition: all 0.3s ease;
   // display: flex;
   height: 120px;
-  padding: 10px 30px 0 70px;
+  padding: 10px 30px 0 30px;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-width: $screen-md-min) {
+  padding-left: 70px;
 }
 
 /* Optional class to fix the navbar on top */
@@ -44,9 +48,10 @@
 
 /* Navbar right section (with form, links, button) */
 .navbar-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  text-align: right;
 }
 
 /* Navbar item */
