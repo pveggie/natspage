@@ -11,7 +11,8 @@
 
     <div class="grid-sizer"></div>
     <% @photos.each do |photo| %>
-      <div class="grid-item <%= photo.category.downcase %>" data-category=" <%= photo.category.downcase %>">
+      <!-- categories_string method is in photo model -->
+      <div class="grid-item <%= photo.categories_string %>" data-category="<%= photo.categories_string %>">
         <div class="photo-holder">
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>

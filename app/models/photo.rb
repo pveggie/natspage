@@ -4,5 +4,8 @@ class Photo < ActiveRecord::Base
   has_many :category_entries
   has_many :categories, through: :category_entries
 
-  scope :front_page, -> { where(front_page: true) }
+  # used to add relevant css classes to each photo
+  def categories_string
+    self.categories.pluck(:name).join(" ").downcase
+  end
 end

@@ -15,8 +15,9 @@ $( document ).ready(function() {
   //************ Filtering ***********
 
   // display photos according to button clicked
-  $('.filters-button-group').on( 'click', 'button', function() {
+  $('.filter-tabs').on( 'click', 'button', function() {
     var filterValue = $( this ).attr('data-filter');
+    console.log(filterValue);
 
     $grid.isotope({ filter: filterValue });
   });
