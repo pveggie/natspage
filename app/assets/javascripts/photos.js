@@ -2,8 +2,8 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 
-  //****** Masonry layout
-  $('#masonry-grid').isotope({
+  //****** Masonry layout & initialising for Isotope
+  var $grid = $('#masonry-grid').isotope({
     itemSelector: '.grid-item',
     percentPosition: true,
     masonry: {
@@ -14,24 +14,22 @@ $( document ).ready(function() {
 
   //************ Filtering ***********
 
-  // Get desired filter and filter accordingly
-  // $('.filter-button-group').on( 'click', 'button', function() {
-  //   var filterValue = $(this).attr('data-filter');
-  //   console.log(filterValue);
-  //   $('.filter-button-group').removeClass('active');
-  //   $(this).addClass('active');
-  //   filterPhotos(filterValue);
-I
-  // });
+  // display photos according to button clicked
+  $('.filters-button-group').on( 'click', 'button', function() {
+    var filterValue = $( this ).attr('data-filter');
 
-  // function filterPhotos(filterValue) {
-  //   console.log(filterValue);
-  //   // console.log($(.grid-item).data());
-  //   //hide all
-  //   $('.grid-item').addClass('hidden');
-  //   // Show target tab-content (use class="hidden")
-  //   $(filterValue).removeClass('hidden');
-  // };
+    $grid.isotope({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+
 
   //*********** Caption checker **************
   //
