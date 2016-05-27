@@ -18,7 +18,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'masonry-rails'
+gem 'isotope-rails'
 
 
 group :development, :test do

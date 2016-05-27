@@ -1,16 +1,17 @@
 <div class="container">
 
-<div class="button-group filter-button-group">
+<div class="button-group filters-button-group">
   <button data-filter="*">Show all</button>
   <button data-filter=".concerts">Concerts</button>
   <button data-filter=".double-exposure">Double-Exposure</button>
   <button data-filter=".buildings">Buildings</button>
 </div>
 
-  <div id="masonry-grid" class="gallery transitions-enabled clearfix padded">
+  <div id="masonry-grid" class="gallery padded">
 
+    <div class="grid-sizer"></div>
     <% @photos.each do |photo| %>
-      <div class="grid-item <%= photo.category.downcase %>">
+      <div class="grid-item <%= photo.category.downcase %>" data-category=" <%= photo.category.downcase %>">
         <div class="photo-holder">
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
