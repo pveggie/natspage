@@ -2,22 +2,37 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 
-  $(function(){
+  //****** Masonry layout & initialising for Isotope
+  var $grid = $('#masonry-grid').isotope({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    masonry: {
+      columnWidth: '.grid-sizer',
+      gutter:10
+    }
+  });
 
-    $('#masonry-grid').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: function( containerWidth ) {
-        console.log(containerWidth);
-        if (containerWidth > 750) {
-        return containerWidth / 3;
-      } else {
-        return containerWidth;
-      }
-      },
-      isFitWidth: true,
+  //************ Filtering ***********
+
+  // display photos according to button clicked
+  $('.filter-tabs').on( 'click', '.tab', function() {
+    var filterValue = $( this ).attr('data-filter');
+
+    $grid.isotope({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  $('.filter-tabs').each( function( i, tab ) {
+    var $tab = $( tab );
+    $tab.on( 'click', '.tab', function() {
+      $tab.find('.active').removeClass('active');
+      $( this ).addClass('active');
     });
   });
 
+
+  //*********** Caption checker **************
+  //
   String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
   };

@@ -1,8 +1,18 @@
 <div class="container">
-  <div id="masonry-grid" class="gallery transitions-enabled clearfix padded">
 
+  <div class="tabs filter-tabs">
+    <a class="tab active" data-filter="*">Show all</a>
+    <a class="tab" data-filter=".concerts">Concerts</a>
+    <a class="tab" data-filter=".double-exposure">Double-Exposure</a>
+    <a class="tab" data-filter=".buildings">Buildings</a>
+  </div>
+
+  <div id="masonry-grid" class="gallery padded">
+
+    <div class="grid-sizer"></div>
     <% @photos.each do |photo| %>
-      <div class="grid-item">
+      <!-- categories_string method is in photo model -->
+      <div class="grid-item <%= photo.categories_string %>" data-category="<%= photo.categories_string %>">
         <div class="photo-holder">
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
