@@ -1,9 +1,7 @@
 class CategoryEntry < ActiveRecord::Base
-  belongs_to :photo, dependent: :destroy
-  belongs_to :category, dependent: :destroy
+  belongs_to :photo
+  belongs_to :category
 
-  validates_presence_of :photo
-  validates_presence_of :category
-
-  accepts_nested_attributes_for :photo
+  validates :photo, presence: true
+  validates :category, presence: true
 end
