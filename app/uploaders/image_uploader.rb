@@ -27,6 +27,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
+  process :convert => 'jpg'
   process :tags => ['natpage']
   # process :scale => [200, 300]
   #

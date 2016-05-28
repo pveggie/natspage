@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'isotope-rails'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do
