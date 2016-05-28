@@ -2,5 +2,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require isotope
-//= require_tree .
+//= require photos.js
 //
