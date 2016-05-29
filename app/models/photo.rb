@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
 
   has_many :category_entries, dependent: :destroy
   has_many :categories, through: :category_entries
+  acts_as_list
 
   validates :image_location, presence: true
 
