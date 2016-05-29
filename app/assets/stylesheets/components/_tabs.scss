@@ -8,20 +8,33 @@
 
 .filter-tabs {
   .tab {
-    color: $gray-dark;
+
     flex: 0 0 auto;
-    padding: 10px;
+
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 25px;
+
+    color: $gray-dark;
+    font-size: 10px;
+    cursor: pointer;
+
 
     &:hover {
-      background: $gray;
-      color: white;
+      background: white;
+      color: $red;
       transition: all 0.5 ease;
       text-decoration: none;
     }
 
-  }
+}
 
   .active {
+    background: $gray;
+    color: white;
+  }
+
+  .active:hover {
     background: $gray;
     color: white;
   }
