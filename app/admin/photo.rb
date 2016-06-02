@@ -11,20 +11,9 @@ ActiveAdmin.register Photo do
 
   sortable
 
-
   # **** CUSTOM VIEWS **** #
-  #
-  index :as => :sortable do
-    div image_tag :image_location
-        actions
-  end
- # index :as => :block do |photo|
- #    label image_tag(photo.image_location, width: 200)
- #  end
-
-
-  # INDEX GRID VIEW
-  index as: :grid, columns: 3 do |photo|
+  # INDEX GRID VIEW - DETAILS
+  index as: :grid, columns: 3, label: "Details" do |photo|
     div class: "photo-holder" do
       resource_selection_cell photo
       h4 photo.caption_title
@@ -36,6 +25,19 @@ ActiveAdmin.register Photo do
         end
     end
   end
+  # INDEX SORTABLE VIEW - REORDER
+  index :as => :sortable do
+    label do |photo|
+      image_tag photo.image_location.url, width: 200
+    end
+
+    # label :caption_title
+    # label :caption_description
+
+
+    actions
+  end
+
 
   # NEW/EDIT VIEW
   form do |f|

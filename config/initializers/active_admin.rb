@@ -251,9 +251,6 @@ ActiveAdmin.setup do |config|
   #
   #   end
 
-  # # == Sorting
-  # config.sort_order = "order"
-
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
@@ -272,7 +269,7 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
-  # remove_filter :order
+  # remove_filter :position
   #
   # By default the filters include associations in a select, which means
   # that every record will be loaded for each association.
