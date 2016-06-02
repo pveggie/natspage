@@ -256,7 +256,7 @@ ActiveAdmin.setup do |config|
   # Pagination is enabled by default for all resources.
   # You can control the default per page count for all resources here.
   #
-  # config.default_per_page = 30
+  config.default_per_page = 200
   #
   # You can control the max per page count too.
   #
@@ -269,6 +269,7 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
+  # remove_filter :position
   #
   # By default the filters include associations in a select, which means
   # that every record will be loaded for each association.

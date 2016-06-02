@@ -9,7 +9,11 @@ ActiveAdmin.register Photo do
   menu priority: 1
   filter :categories, as: :check_boxes
 
-  index as: :grid, columns: 3 do |photo|
+  sortable
+
+  # **** CUSTOM VIEWS **** #
+  # INDEX GRID VIEW - DETAILS
+  index as: :grid, columns: 3, label: "Details" do |photo|
     div class: "photo-holder" do
       resource_selection_cell photo
       h4 photo.caption_title
@@ -21,8 +25,21 @@ ActiveAdmin.register Photo do
         end
     end
   end
+  # INDEX SORTABLE VIEW - REORDER
+  index :as => :sortable do
+    label do |photo|
+      image_tag photo.image_location.url, width: 200
+    end
+
+    # label :caption_title
+    # label :caption_description
 
 
+    actions
+  end
+
+
+  # NEW/EDIT VIEW
   form do |f|
     f.inputs do
       f.input :image_location, :as => :file,
@@ -35,5 +52,4 @@ ActiveAdmin.register Photo do
 
     f.actions
   end
-
 end

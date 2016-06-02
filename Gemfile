@@ -20,6 +20,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'isotope-rails'
 gem 'activeadmin', github: 'activeadmin'
+gem 'acts_as_list'
+gem "active_admin-sortable_tree"
 
 
 group :development, :test do
