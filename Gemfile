@@ -31,8 +31,20 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
+  gem 'rspec-rails', '~> 3.4'
+  # https://github.com/thoughtbot/factory_girl_rails
+  gem 'factory_girl_rails'
+end
 
-
+group :test do
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 3.1'
+  # https://github.com/jdliss/shoulda-callback-matchers
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :production do
