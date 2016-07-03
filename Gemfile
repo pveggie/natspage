@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   # https://github.com/thoughtbot/factory_girl_rails
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :test do
@@ -41,7 +42,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   # https://github.com/jdliss/shoulda-callback-matchers
   gem 'shoulda-callback-matchers', '~> 1.1.1'
-  gem 'faker'
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
