@@ -10,16 +10,27 @@ RSpec.describe Photo, type: :model do
 
 #   # Lazily loaded to ensure it's only used when it's needed
 #   # RSpec tip: Try to avoid @instance_variables if possible. They're slow.
-#   let(:factory_instance) { build(:factory_you_built) }
+  let(:test_photo) { build(:photo) }
+  let(:local_photo) { build(:photo, image_location: "../app/assets/images/12494716_418040208366540_1333243431293533848_n.jpg") }
+  let(:invalid_photo) { build(:photo, image_location: nil, remote_image_location_url: nil) }
 
-#   describe "ActiveModel validations" do
+  describe "ActiveModel validations" do
 #     # http://guides.rubyonrails.org/active_record_validations.html
 #     # http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames
 #     # http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/Shoulda/Matchers/ActiveModel
 
 #     # Basic validations
 #     it { expect(bodybuilder).to validate_presence_of(:food).with_message(/you can't get big without your protein!/) }
-#     it { expect(developer).to validate_presence_of(:favorite_coffee) }
+
+    it "is invalid without a photo" do
+      expect(invalid_photo).to_not be_valid
+    end
+
+    it "is valid with a local photo" do
+      expect(local_photo).to be_valid
+    end
+
+      # it { expect(test_photo).to validate_presence_of(:image_location) }
 #     it { expect(meal).to validate_numericality_of(:price) }
 #     it { expect(tumblog).to validate_numericality_of(:follower_count).only_integer }
 #     it { expect(odd_number).to validate_numericality_of(:value).odd }
@@ -46,7 +57,7 @@ RSpec.describe Photo, type: :model do
 #     it { expect(applicant).to ensure_length_of(:ssn).is_equal_to(9) }
 #     it { expect(contract).to validate_acceptance_of(:terms) }  # For boolean values
 #     it { expect(user).to validate_confirmation_of(:password) }  # Ensure two values match
-#   end
+  end
 
 #   describe "ActiveRecord associations" do
 #     # http://guides.rubyonrails.org/association_basics.html
