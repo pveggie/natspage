@@ -11,6 +11,9 @@ class Photo < ActiveRecord::Base
   has_many :categories, through: :category_entries
 # == Validations ==========================================================
   validates :image_location, :remote_image_location_url, presence: true
+  validates :categories, :category_ids, presence: true
+  validates :caption_title, length: { maximum: 60 }
+  validates :caption_description, length: { maximum: 300 }
 # == Scopes ===============================================================
 
 # == Callbacks ============================================================
