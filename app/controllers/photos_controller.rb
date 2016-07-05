@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
     @categories = Category.all
   end
 
-  def show
-    @photo.Photo.find(params[:id])
-  end
+  # def show
+  #   @photo.Photo.find(params[:id])
+  # end
 end
