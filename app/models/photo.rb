@@ -19,7 +19,9 @@ class Photo < ActiveRecord::Base
 
 # == Instance Methods =====================================================
   # used to add relevant css classes to each photo
-
+  def categories_string
+    self.categories.pluck(:name).join(" ").downcase
+  end
 
   private
   def delete_from_cloudinary
