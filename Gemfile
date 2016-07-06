@@ -43,7 +43,7 @@ group :test do
   # https://github.com/jdliss/shoulda-callback-matchers
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'capybara'
-  gem 'guard-rspec'
+  gem 'guard-rspec', require: false
   gem 'launchy'
 end
 
