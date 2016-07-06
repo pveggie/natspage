@@ -11,5 +11,10 @@ FactoryGirl.define do
     caption_description Faker::Hipster.sentence(4)
     category_ids { create(:category)[:id] }
   end
+
+  factory :category_entry do
+    photo_id { create(:photo)[:id] }
+    category_id { create(:category)[:id] }
+  end
 end
 
