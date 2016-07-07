@@ -1,5 +1,15 @@
-# This will guess the User class
 FactoryGirl.define do
+
+  factory :user do
+    email "test@test.com"
+    password "test_password"
+
+    factory :admin do
+      admin true
+    end
+  end
+
+
 
   factory :category do
     name Faker::Lorem.words(2)

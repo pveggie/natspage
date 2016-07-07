@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'spring'
   gem 'rspec-rails', '~> 3.4'
+  gem 'spring-commands-rspec'
   # https://github.com/thoughtbot/factory_girl_rails
   gem 'factory_girl_rails'
   gem 'faker'
