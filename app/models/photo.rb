@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
   has_many :category_entries, dependent: :destroy
   has_many :categories, through: :category_entries
 # == Validations ==========================================================
-  validates :image_location, :remote_image_location_url, presence: true
+  validate  :has_image
   validates :categories, :category_ids, presence: true
   validates :caption_title, length: { maximum: 60 }
   validates :caption_description, length: { maximum: 300 }
@@ -26,7 +26,15 @@ class Photo < ActiveRecord::Base
     self.categories.pluck(:name).join(" ").downcase
   end
 
+  def has_image
+    if self.image_location.blank? && self.remote_image_location_url.blank?
+      errors.add(:image_location, "must be provided")
+    end
+  end
+
   private
+
+
   def delete_from_cloudinary
     public_id = self.image_location.file.public_id
     Cloudinary::Uploader.destroy(public_id)
