@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CategoryEntry, type: :model do
-
+  after { Photo.destroy_all }
   it "has a valid factory" do
     expect(build(:category_entry)).to be_valid
   end

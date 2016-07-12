@@ -6,11 +6,13 @@ RSpec.describe "photos/index", type: :view do
       create(:category),
       create(:category)])
     assign(:photos, [
-      create(:photo, categories: [Category.first]),
-      create(:photo, categories: [Category.second])
+      create(:local_photo, categories: [Category.first]),
+      create(:local_photo, categories: [Category.second])
     ])
 
   end
+
+  after { Photo.destroy_all }
 
   it "renders a list of photos" do
     render
