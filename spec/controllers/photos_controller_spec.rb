@@ -11,4 +11,11 @@ RSpec.describe PhotosController, type: :controller do
       expect(assigns(:photos)).to eq([photo])
     end
   end
+
+  describe "GET #new" do
+    it "assigns a new photo as @photo" do
+      get :new, {}
+        expect(assigns(:photo)).to be_a_new(Photo)
+    end
+  end
 end
