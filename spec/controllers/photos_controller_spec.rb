@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe PhotosController, type: :controller do
-
   after { Photo.destroy_all }
 
   describe "GET #index" do
