@@ -14,7 +14,7 @@ FactoryGirl.define do
   end
 
   factory :photo do
-    caption_title Faker::Lorem.words(1, false)
+    caption_title Faker::Lorem.words(1, false).join
     caption_description Faker::Hipster.sentence(4)
     category_ids { create(:category)[:id] }
 
