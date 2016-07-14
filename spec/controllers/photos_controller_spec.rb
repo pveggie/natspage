@@ -5,9 +5,15 @@ RSpec.describe PhotosController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Photo. As you add validations to Photo, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for(:local_photo) }
-  let(:invalid_attributes) { attributes_for(:photo) }
-  let(:new_attributes) { attributes_for(:remote_photo) }
+  let(:valid_attributes) { attributes_for(:remote_photo) }
+
+  let(:invalid_attributes) do
+    string = "123456789A"
+    new_title = 300.times { string + "123456789A" }
+    attributes_for(:photo, caption_title: new_title)
+  end
+
+  let(:new_attributes) { attributes_for(:remote_photo, caption_title: "changed title") }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -40,8 +46,6 @@ RSpec.describe PhotosController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Photo" do
-        puts valid_attributes
-        p build(:photo, valid_attributes).valid?
         expect {
           post :create, {:photo => valid_attributes}, valid_session
         }.to change(Photo, :count).by(1)
@@ -53,9 +57,9 @@ RSpec.describe PhotosController, type: :controller do
         expect(assigns(:photo)).to be_persisted
       end
 
-      it "redirects to the created photo" do
+      it "redirects to the index page" do
         post :create, {:photo => valid_attributes}, valid_session
-        expect(response).to redirect_to(Photo.last)
+        expect(response).to redirect_to(photos_path)
       end
     end
 
@@ -67,7 +71,7 @@ RSpec.describe PhotosController, type: :controller do
 
       it "re-renders the 'new' template" do
         post :create, {:photo => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
+        expect(response).to render_template(:new)
       end
     end
   end
@@ -86,7 +90,7 @@ RSpec.describe PhotosController, type: :controller do
         photo = Photo.create! valid_attributes
         put :update, {:id => photo.to_param, :photo => new_attributes}, valid_session
         photo.reload
-        skip("Add assertions for updated state")
+        expect(photo.caption_title).to eql("changed title")
       end
 
       it "assigns the requested photo as @photo" do
@@ -95,10 +99,10 @@ RSpec.describe PhotosController, type: :controller do
         expect(assigns(:photo)).to eq(photo)
       end
 
-      it "redirects to the photo" do
+      it "redirects to the index" do
         photo = Photo.create! valid_attributes
         put :update, {:id => photo.to_param, :photo => valid_attributes}, valid_session
-        expect(response).to redirect_to(photo)
+        expect(response).to redirect_to(photos_path)
       end
     end
 
@@ -112,7 +116,7 @@ RSpec.describe PhotosController, type: :controller do
       it "re-renders the 'edit' template" do
         photo = Photo.create! valid_attributes
         put :update, {:id => photo.to_param, :photo => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+        expect(response).to render_template(:edit)
       end
     end
   end

@@ -21,6 +21,9 @@ class PhotosController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     @photo.update(photo_params)
     if @photo.save
@@ -31,16 +34,16 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo.delete
+    @photo.destroy
     redirect_to photos_path
   end
 
 
   private
-  # def find_photo
-  #   @photo = Photo.find(params[:id])
-  # end
-  #
+  def find_photo
+    @photo = Photo.find(params[:id])
+  end
+
   def photo_params
     params.require(:photo).permit(:caption_title, :caption_description,
                                   :image_location, :image_location_cache,

@@ -23,7 +23,7 @@ FactoryGirl.define do
     end
 
     factory :local_photo do
-      image_location File.open(File.join(Rails.root, '/spec/assets/test_image.jpg'))
+      image_location File.open(File.join(Rails.root, 'spec/assets/test_image.jpg'))
     end
   end
 
