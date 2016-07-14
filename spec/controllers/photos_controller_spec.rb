@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PhotosController, type: :controller do
-  # after { Photo.destroy_all }
+  after { Photo.destroy_all }
   # This should return the minimal set of attributes required to create a valid
   # Photo. As you add validations to Photo, be sure to
   # adjust the attributes here as well.
@@ -9,8 +9,8 @@ RSpec.describe PhotosController, type: :controller do
 
   let(:invalid_attributes) do
     string = "123456789A"
-    new_title = 300.times { string + "123456789A" }
-    attributes_for(:photo, caption_title: new_title)
+    30.times { string += "123456789A" }
+    attributes_for(:photo, caption_title: string)
   end
 
   let(:new_attributes) { attributes_for(:remote_photo, caption_title: "changed title") }

@@ -31,7 +31,6 @@ RSpec.describe Photo, type: :model do
     end
 
     it { expect(local_photo).to validate_presence_of(:categories) }
-    it { expect(local_photo).to validate_presence_of(:category_ids) }
 
     # Inclusion/acceptance of values
     it { expect(local_photo).to validate_length_of(:caption_title).is_at_most(60) }

@@ -1,7 +1,7 @@
-require 'rails-helper'
+require 'rails_helper'
 
 RSpec.feature "Create photos", :type => :feature do
-  let :valid_attributes { attributes_for(:local_photo)}
+  let(:valid_attributes) { attributes_for(:local_photo) }
   scenario "User is not logged in" do
   end
 
