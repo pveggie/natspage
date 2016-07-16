@@ -49,7 +49,7 @@ guard :rspec, cmd: "rspec" do
     [
       rspec.spec.call("routing/#{m[1]}_routing"),
       rspec.spec.call("controllers/#{m[1]}_controller"),
-      rspec.spec.call("acceptance/#{m[1]}")
+      # rspec.spec.call("acceptance/#{m[1]}")
     ]
   end
 
@@ -62,9 +62,9 @@ guard :rspec, cmd: "rspec" do
   watch(rails.view_dirs)     { |m| rspec.spec.call("features/#{m[1]}") }
   watch(rails.layouts)       { |m| rspec.spec.call("features/#{m[1]}") }
 
-  # Turnip features and steps
-  watch(%r{^spec/acceptance/(.+)\.feature$})
-  watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
-    Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
-  end
+  # # Turnip features and steps
+  # watch(%r{^spec/acceptance/(.+)\.feature$})
+  # watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
+  #   Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
+  # end
 end
