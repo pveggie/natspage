@@ -34,8 +34,14 @@ RSpec.configure do |config|
   # Use FactoryGirl commands without prefacing with FactoryGirl
   config.include FactoryGirl::Syntax::Methods
 
-  # config.include Devise::Test::ControllerHelpers, type: :controller
-  # config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+
+  config.include Warden::Test::Helpers
+    config.before :suite do
+      Warden.test_mode!
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"

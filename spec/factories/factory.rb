@@ -29,7 +29,7 @@ FactoryGirl.define do
   end
 
   factory :category_entry do
-    photo_id { create(:local_photo)[:id] }
+    photo_id { create(:remote_photo)[:id] }
     category_id { create(:category)[:id] }
   end
 end
