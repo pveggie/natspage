@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Photo, type: :model do
+RSpec.describe Photo, type: :model, focus: true do
   after { Photo.destroy_all }
   after(:all) { FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"]) }
 

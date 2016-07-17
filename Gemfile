@@ -46,7 +46,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec', require: false
   gem 'launchy'
-  gem 'poltergeist'
+  gem 'poltergeist', '1.9.0'
   # gem 'capybara-webkit'
   # gem 'selenium-webdriver'
   gem 'database_cleaner'

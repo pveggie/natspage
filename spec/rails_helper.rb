@@ -38,7 +38,7 @@ RSpec.configure do |config|
   # config.include Devise::Test::ControllerHelpers, type: :view
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -62,7 +62,7 @@ RSpec.configure do |config|
         uncommitted transaction data setup over the spec's database connection.
       MSG
     end
-    DatabaseCleaner.clean_with(:deletion)
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
