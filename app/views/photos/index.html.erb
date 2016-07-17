@@ -17,12 +17,12 @@
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
 
-            <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
-              <div id="photo-caption" class="caption hidden">
-                <h5><%= photo.caption_title %></h5>
-                <p><%= photo.caption_description %></p>
-              </div>
-            <% end %>
+          <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
+            <div id="photo-caption" class="caption hidden">
+              <h5><%= photo.caption_title %></h5>
+              <p><%= photo.caption_description %></p>
+            </div>
+          <% end %>
 
         </div>
       </div>
