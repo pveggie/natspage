@@ -17,4 +17,9 @@ RSpec.describe "photos/index", type: :view do
   it "renders a list of photos" do
     render
   end
+
+  it "shows edit buttons for each photo when the user is an admin user" do
+    render
+    expect(rendered).to have_css('.edit-button')
+  end
 end
