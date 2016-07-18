@@ -15,7 +15,7 @@
       <div class="grid-item <%= photo.categories_string %>" data-category="<%= photo.categories_string %>">
         <div class="photo-holder">
 
-          <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
+          <%= image_tag(photo.image_location, alt: photo.image_alt, class: "photo", width: 300, crop: :scale)%>
 
           <% if admin_user? %>
             <div class="photo-admin-buttons">
@@ -23,7 +23,7 @@
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               <% end %>
 
-              <%= link_to new_photo_path(photo), class: "delete-button" do %>
+              <%= link_to new_photo_path(photo), method: :delete, class: "delete-button" do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             </div>
