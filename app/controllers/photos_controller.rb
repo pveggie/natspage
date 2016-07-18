@@ -1,7 +1,9 @@
 class PhotosController < ApplicationController
   #normal user can only see photos. adding, editing and destroying photos
   #is done in admin view
+  before_action :confirm_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_photo, only: [:edit, :update, :destroy]
+
 
   def index
     @photos = Photo.all
@@ -49,5 +51,9 @@ class PhotosController < ApplicationController
                                   :image_location, :image_location_cache,
                                   :remote_image_location_url,
                                   :category_ids => [])
+  end
+
+  def confirm_admin
+    redirect_to photos_path unless admin_user?
   end
 end

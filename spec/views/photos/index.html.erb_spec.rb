@@ -4,7 +4,8 @@ RSpec.describe "photos/index", type: :view, focus:true do
 
   before(:each) do
     assign(:categories, [
-      build(:category, name: "Concerts")
+      build(:category, name: "Concerts"),
+      build(:category, name: "Animals")
     ])
     assign(:photos, [
       build(:remote_photo, caption_title: "Test One", categories: [build(:category, name: "Concerts")]),
@@ -16,10 +17,17 @@ RSpec.describe "photos/index", type: :view, focus:true do
     Photo.destroy_all
   end
 
-  describe "Listing" do
+  describe "Standard view" do
+    it "renders buttons for all categories" do
+      render
+      expect(render).to match /Concerts/
+      expect(render).to match /Animals/
+    end
+
     it "renders a list of photos" do
       render
-      expect(render).to match /(Test One)|(Test Two)/
+      expect(render).to match /(Test One)/
+      expect(render).to match /(Test Two)/
     end
   end
 

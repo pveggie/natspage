@@ -17,7 +17,7 @@
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
 
-          <% if admin_user %>
+          <% if admin_user? %>
             <div class="admin-buttons">
               <%= link_to new_photo_path(photo), class: "edit-button" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>

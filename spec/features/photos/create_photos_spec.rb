@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.feature "Create photos", :type => :feature, focus: true do
   feature "Adding Photos" do
     background do
-      create(:admin)
+      admin = create(:admin)
       create(:category, name: "Concerts")
+      sign_in(admin)
     end
     after { Photo.destroy_all }
 
