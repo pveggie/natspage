@@ -18,12 +18,12 @@
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
 
           <% if admin_user? %>
-            <div class="admin-buttons">
+            <div class="photo-admin-buttons">
               <%= link_to new_photo_path(photo), class: "edit-button" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               <% end %>
 
-              <%= link_to new_photo_path(photo), class: "delete-button" do %>
+              <%= link_to photo_path(photo), { class: "delete-button", method: :delete, data: {confirm: "Are you sure you want to delete this photo?"} } do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             </div>
