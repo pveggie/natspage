@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Photo, type: :model do
+RSpec.describe Photo, type: :model, focus: true do
   after { Photo.destroy_all }
   after(:all) { FileUtils.rm_rf(Dir["#{Rails.root}/public/uploads"]) }
 
@@ -21,7 +21,7 @@ RSpec.describe Photo, type: :model do
   let(:no_photo) { build(:photo) }
   let(:saved_photo) { create(:local_photo) }
 
-  describe "ActiveModel validations" do
+  describe "ActiveModel validations", focus:false do
     it "is invalid without a photo" do
       expect(no_photo).to_not be_valid
     end
@@ -37,7 +37,7 @@ RSpec.describe Photo, type: :model do
     it { expect(local_photo).to validate_length_of(:caption_description).is_at_most(300) }
   end
 
-  describe "Cloudinary storage" do
+  describe "Cloudinary storage", focus:false do
     it "saves an uploaded photo in Cloudinary" do
       public_id = saved_photo.image_location.file.public_id
       expect(Cloudinary::Api.resources_by_ids(public_id)["resources"].count).to eql(1)

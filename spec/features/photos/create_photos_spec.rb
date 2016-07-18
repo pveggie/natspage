@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Create photos", :type => :feature do
+RSpec.feature "Create photos", :type => :feature, focus: true do
   feature "Adding Photos" do
     background do
       create(:admin)
@@ -8,7 +8,7 @@ RSpec.feature "Create photos", :type => :feature do
     end
     after { Photo.destroy_all }
 
-    scenario "admin user can add a photo and then see it in the gallery", js: true do
+    scenario "admin user can add a photo and then see it in the gallery" do
       # go to index and click Add Photo
       visit('/')
       click_link("Add Photo")
@@ -36,6 +36,5 @@ RSpec.feature "Create photos", :type => :feature do
         expect(page).to have_css("img")
       end
     end
-
   end
 end

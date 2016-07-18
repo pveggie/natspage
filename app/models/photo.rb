@@ -23,7 +23,7 @@ class Photo < ActiveRecord::Base
 # == Instance Methods =====================================================
   # used to add relevant css classes to each photo
   def categories_string
-    self.categories.pluck(:name).join(" ").downcase
+    self.categories.pluck(:name).sort.join(" ").downcase
   end
 
   def has_image

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "photos/index", type: :view do
+RSpec.describe "photos/index", type: :view, focus:true do
 
   before(:each) do
     assign(:categories, [
@@ -19,6 +19,7 @@ RSpec.describe "photos/index", type: :view do
   describe "Listing" do
     it "renders a list of photos" do
       render
+      expect(render).to match /(Test One)|(Test Two)/
     end
   end
 
