@@ -39,9 +39,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
 
   config.include Warden::Test::Helpers
-    config.before :suite do
-      Warden.test_mode!
-  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -69,6 +66,7 @@ RSpec.configure do |config|
       MSG
     end
     DatabaseCleaner.clean_with(:truncation)
+    Warden.test_mode!
   end
 
   config.before(:each) do
@@ -97,6 +95,7 @@ RSpec.configure do |config|
     # deletion doesn't work because of link between photos and category entries
     # Photo.destroy_all if Photo.count > 0
     DatabaseCleaner.clean
+    Warden.test_reset!
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests

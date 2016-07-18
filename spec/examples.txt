@@ -15,7 +15,7 @@ example_id                                            | status | run_time       
 ./spec/controllers/photos_controller_spec.rb[1:5:2:2] | passed | 6.44 seconds    |
 ./spec/controllers/photos_controller_spec.rb[1:6:1]   | passed | 34.85 seconds   |
 ./spec/controllers/photos_controller_spec.rb[1:6:2]   | passed | 6.37 seconds    |
-./spec/features/photos/create_photos_spec.rb[1:1:1]   | passed | 21 seconds      |
+./spec/features/photos/create_photos_spec.rb[1:1:1]   | failed | 37.88 seconds   |
 ./spec/models/category_entry_spec.rb[1:1]             | passed | 17.44 seconds   |
 ./spec/models/category_entry_spec.rb[1:2:1]           | passed | 6.44 seconds    |
 ./spec/models/category_entry_spec.rb[1:2:2]           | passed | 7.1 seconds     |
@@ -59,9 +59,9 @@ example_id                                            | status | run_time       
 ./spec/routing/photos_routing_spec.rb[1:1:5]          | passed | 0.00498 seconds |
 ./spec/routing/photos_routing_spec.rb[1:1:6]          | passed | 0.01696 seconds |
 ./spec/views/photos/edit.html.erb_spec.rb[1:1]        | passed | 7.3 seconds     |
-./spec/views/photos/index.html.erb_spec.rb[1:1:1]     | passed | 0.03167 seconds |
-./spec/views/photos/index.html.erb_spec.rb[1:2:1:1]   | passed | 0.03088 seconds |
-./spec/views/photos/index.html.erb_spec.rb[1:2:1:2]   | passed | 0.0302 seconds  |
-./spec/views/photos/index.html.erb_spec.rb[1:2:2:1]   | passed | 0.09693 seconds |
-./spec/views/photos/index.html.erb_spec.rb[1:2:2:2]   | passed | 0.04463 seconds |
+./spec/views/photos/index.html.erb_spec.rb[1:1:1]     | passed | 0.06673 seconds |
+./spec/views/photos/index.html.erb_spec.rb[1:2:1:1]   | passed | 0.10931 seconds |
+./spec/views/photos/index.html.erb_spec.rb[1:2:1:2]   | passed | 0.28748 seconds |
+./spec/views/photos/index.html.erb_spec.rb[1:2:2:1]   | passed | 0.13547 seconds |
+./spec/views/photos/index.html.erb_spec.rb[1:2:2:2]   | passed | 0.08664 seconds |
 ./spec/views/photos/new.html.erb_spec.rb[1:1]         | passed | 0.05805 seconds |

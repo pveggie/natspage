@@ -17,14 +17,16 @@
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: photo, width: 300, crop: :scale)%>
 
-          <% if user_signed_in? && current_user.admin %>
-            <%= link_to new_photo_path(photo), class: "edit-button" do %>
-              <i class="fa fa-pencil" aria-hidden="true"></i>
-            <% end %>
+          <% if admin_user %>
+            <div class="admin-buttons">
+              <%= link_to new_photo_path(photo), class: "edit-button" do %>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              <% end %>
 
-            <%= link_to new_photo_path(photo), class: "delete-button" do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
+              <%= link_to new_photo_path(photo), class: "delete-button" do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            </div>
           <% end %>
 
           <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
