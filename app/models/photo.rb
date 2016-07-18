@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
   has_many :categories, through: :category_entries
 # == Validations ==========================================================
   validate  :has_image
-  validates :categories, :category_ids, presence: true
+  validates :categories, presence: true
   validates :caption_title, length: { maximum: 60 }
   validates :caption_description, length: { maximum: 300 }
 # == Scopes ===============================================================
@@ -23,7 +23,7 @@ class Photo < ActiveRecord::Base
 # == Instance Methods =====================================================
   # used to add relevant css classes to each photo
   def categories_string
-    self.categories.pluck(:name).join(" ").downcase
+    self.categories.pluck(:name).sort.join(" ").downcase
   end
 
   def has_image
@@ -33,8 +33,6 @@ class Photo < ActiveRecord::Base
   end
 
   private
-
-
   def delete_from_cloudinary
     public_id = self.image_location.file.public_id
     Cloudinary::Uploader.destroy(public_id)

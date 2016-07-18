@@ -10,25 +10,26 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name Faker::Lorem.words(2)
+    name Faker::Lorem.words(2).join
   end
 
   factory :photo do
-    caption_title Faker::Lorem.words(1, false)
+    caption_title Faker::Lorem.words(1, false).join
     caption_description Faker::Hipster.sentence(4)
-    category_ids { create(:category)[:id] }
 
     factory :remote_photo do
       remote_image_location_url Faker::Avatar.image
+      category_ids { [create(:category)[:id]] }
     end
 
     factory :local_photo do
-      image_location File.open(File.join(Rails.root, '/spec/assets/test_image.jpg'))
+      image_location File.open(File.join(Rails.root, 'spec/assets/test_image.jpg'))
+      category_ids { [create(:category)[:id]] }
     end
   end
 
   factory :category_entry do
-    photo_id { create(:local_photo)[:id] }
+    photo_id { create(:remote_photo)[:id] }
     category_id { create(:category)[:id] }
   end
 end

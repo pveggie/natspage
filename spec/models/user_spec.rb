@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe User, type: :model, focus:true do
 
   describe "Factories" do
     context "Non-admin user" do
@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "ActiveModel validations" do
+  describe "ActiveModel validations", focus:false do
     # http://guides.rubyonrails.org/active_record_validations.html
     # http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/frames
     # http://rubydoc.info/github/thoughtbot/shoulda-matchers/master/Shoulda/Matchers/ActiveModel

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
+RSpec.describe Category, type: :model, focus:true do
 
   it "has a valid factory" do
     expect(build(:category)).to be_valid
@@ -8,7 +8,7 @@ RSpec.describe Category, type: :model do
 
   let(:category) { build(:category) }
 
-  describe "ActiveModel validations" do
+  describe "ActiveModel validations", focus:false do
     it { expect(category).to validate_presence_of(:name) }
     it { expect(category).to validate_length_of(:name).is_at_most(30) }
   end
@@ -17,8 +17,6 @@ RSpec.describe Category, type: :model do
     # Associations
     it { expect(category).to have_many(:category_entries).dependent(:destroy) }
     it { expect(category).to have_many(:photos).through(:category_entries) }
-
-
     # it { expect(initech_corporation).to have_many(:employees).with_foreign_key(:worker_drone_id) }
   end
 
