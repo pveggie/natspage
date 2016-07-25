@@ -6,8 +6,8 @@
     </div>
     <div class="navbar-links tabs">
       <ul class="list-inline hidden-xs hidden-sm">
-        <li><%= link_to "Home", "#" %></li>
-        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Contact", "#" %></li>
         <% if admin_user? %>
           <li><%= link_to'Add Photo', new_photo_path %></li>

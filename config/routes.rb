@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   #Normal users can see photos, see the contact page, and see the about page
   root 'photos#index'
   resources :photos, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  get '/about' => 'pages#about'
 end

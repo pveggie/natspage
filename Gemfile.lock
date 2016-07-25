@@ -329,6 +329,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    tinymce-rails (4.4.0)
+      railties (>= 3.1.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -385,7 +387,11 @@ DEPENDENCIES
   simple_form
   spring
   spring-commands-rspec
+  tinymce-rails
   uglifier
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
