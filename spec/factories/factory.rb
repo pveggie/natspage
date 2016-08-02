@@ -32,5 +32,9 @@ FactoryGirl.define do
     photo_id { create(:remote_photo)[:id] }
     category_id { create(:category)[:id] }
   end
+
+  factory :about do
+    content Faker::Lorem.paragraphs(2)
+  end
 end
 
