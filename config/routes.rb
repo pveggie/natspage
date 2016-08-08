@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root 'photos#index'
   resources :photos, only: [:index, :new, :create, :edit, :update, :destroy]
 
-
   get 'pages/about' => 'pages#about'
+  resources :about_sections
 end
