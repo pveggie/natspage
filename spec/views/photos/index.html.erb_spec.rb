@@ -49,19 +49,19 @@ RSpec.describe "photos/index", type: :view, focus:true do
     #   # stub out the admin_user method
     #   let(:admin) { create(:admin) }
 
-      # it "renders an edit button" do
-      #   # allow(view).to receive(:admin_user).and_return(true)
-      #   sign_in(admin)
-      #   render
-      #   expect(rendered).to have_css('.edit-button')
-      # end
+    #   it "renders an edit button" do
+    #     # allow(view).to receive(:admin_user).and_return(true)
+    #     sign_in(admin)
+    #     render
+    #     expect(rendered).to have_css('.edit-button')
+    #   end
 
-      # it "renders a delete button" do
-      #   # allow(view).to receive(:admin_user).and_return(true)
-      #   sign_in(admin)
-      #   render
-      #   expect(rendered).to have_css('.delete-button')
-      # end
+    #   it "renders a delete button" do
+    #     # allow(view).to receive(:admin_user).and_return(true)
+    #     sign_in(admin)
+    #     render
+    #     expect(rendered).to have_css('.delete-button')
+    #   end
     # end
   end
 end
