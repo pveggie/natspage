@@ -2,29 +2,28 @@
   <div class="row">
     <div class="col-xs-12">
 
-<!--   <h1>About Me</h1>
-    <%= text_area_tag :content, "", :class => "tinymce", id: "about_description", :rows => 10, :cols => 80 %>
-    <%= tinymce %>
-    </div> -->
-<!--   </div> -->
-  <% @about_sections.each do |section| %>
-    <div class="about-section">
-      <% if admin_user? %>
-          <i class="fa fa-pencil edit-button" aria-hidden="true"></i>
-      <% end %>
-      <h2><%=section.header%></h2>
-      <p><%=section.content%></p>
+      <% @about_sections.each do |section| %>
+        <div class="about-section">
 
-      <% if admin_user? %>
-        <div class="about-edit-form hidden">
-          <%= simple_form_for @section do |f| %>
-            <%= f.input :header %>
-            <%= f.input :content %>
-            <%= f.button :submit %>
+          <% if admin_user? %>
+            <i class="fa fa-pencil edit-button" aria-hidden="true"></i>
           <% end %>
+          <h2><%=section.header%></h2>
+          <p><%=section.content%></p>
+
+          <% if admin_user? %>
+            <div id="about-edit-form" class="hidden">
+              <%= simple_form_for(section, as: :about_section) do |f| %>
+              <%= f.input :header %>
+              <%= f.input :content %>
+              <%= f.button :submit, value: "Update about section" %>
+              <% end %>
+            </div>
+          <% end %>
+
         </div>
       <% end %>
 
     </div>
-  <% end %>
+  </div>
 </div>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Edit about", :type => :feature, focus: true, js: true do
-  feature "Editing about" do
+RSpec.feature "Admin editable about page", :type => :feature, focus: true, js: true do
+  feature "Editing about section" do
     background do
       admin = create(:admin)
       create(:about_section, header: "About Me", content: "I am a message.")
@@ -9,32 +9,29 @@ RSpec.feature "Edit about", :type => :feature, focus: true, js: true do
     end
 
     scenario "admin user can edit the about text" do
-      # go to index and click Add Photo
+      # go to about page and see about section text
       visit('/pages/about')
+      expect(page).to have_content("About Me")
+      expect(page).to have_content("I am a message")
 
-      # find edit button for about section
+      # find edit button for about section and click to load form
+      expect(page).to_not have_css('form')
       find('.edit-button').click
       expect(page).to have_css("form")
-      # within('form') do
-      #   fill_in "Caption title", with: "Rammstein"
-      #   fill_in "Caption description", with: "Performance at Jahrhunderthalle 2016"
-      #   attach_file("Image", File.join(Rails.root, "spec/assets/test_image.jpg"))
-      #   # save_and_open_page
-      #   # category = create(:category, name: "Concerts")
-      #   select("Concerts", from: "Categories")
-      #   click_button("Create Photo")
-      # end
 
-      # # be returned to index and see image
-      # expect(page).to_not have_css("form")
+      # fill in form
+      within('form') do
+        fill_in 'Header', with: "I'm a new header"
+        fill_in 'Content', with: "I'm new text"
+        click_button('Update about section')
+      end
 
-      # within(:css, ".gallery") do
-      #   expect(page).to have_content("Performance at Jahrhunderthalle 2016")
-      #   expect(page).to have_css(".photo-holder")
+      # see updated text on page
+      expect(page).to_not have_content("About Me")
+      expect(page).to_not have_content("I am a message")
 
-      #   # requires js to be true
-      #   expect(page).to have_css("img")
-      # end
+      expect(page).to have_content("I'm a new header")
+      expect(page).to have_content("I'm new text")
     end
   end
 end

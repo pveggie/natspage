@@ -6,4 +6,5 @@
 
 // own sheets
 //= require photos.js
+//= require pages.js
 
