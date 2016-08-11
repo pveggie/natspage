@@ -1,5 +1,5 @@
 //***********************************
-// RESPONSIVE VIEW
+// PHOTO GALLERY
 //***********************************
 
 //1 column for mobile
@@ -48,46 +48,4 @@
     height: 0;
   }
 }
-
-//*********************//
-// PHOTO CARD
-//*********************//
-
-//
-.photo-holder {
-  width: 100%;
-  position: relative;
-
-  img {
-      width: 100%;
-      border: 0.1px solid $gray-lighter;
-      // box-shadow: 0.5 0.5 0.5 rgba(50, 50, 50, 0.75);
-  }
-
-  .caption {
-    width: 100%;
-    position: absolute;
-    bottom: 0px;
-    padding: 10px;
-
-    overflow: hidden;
-    text-overflow: ellipsis;
-    z-index: 2;
-    color: $gray-light;
-    background: black;
-    opacity: 0.6;
-
-    h5 {
-      margin: 0px;
-    }
-  }
-
-  .photo-admin-buttons {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-  }
-
-}
-
 
