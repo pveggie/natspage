@@ -12,7 +12,9 @@ RSpec.feature "Create photos", :type => :feature, focus: true do
     scenario "admin user can add a photo and then see it in the gallery" do
       # go to index and click Add Photo
       visit('/')
-      click_link("Add Photo")
+      within('.links-right') do
+        click_link("Add Photo")
+      end
 
       # add information to form and click to confirm
       expect(page).to have_css("form")
