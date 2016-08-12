@@ -49,7 +49,7 @@
   padding: 0 20px 20px 20px;
   margin: 0px 0px 20px 0px;
 
-  border: 1px solid $gray-darker;
+  // border: 1px solid $gray-darker;
 
   .about-edit-button {
     position: absolute;
@@ -62,8 +62,16 @@
   }
 
   .about-header {
+    display: flex;
+    align-items: flex-end;
+
+    h2 {
+      margin-left: -20px;
+      margin-bottom: 5px;
+    }
   }
 
   .about-content {
+    margin-top: 20px;
   }
 }

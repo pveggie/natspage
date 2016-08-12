@@ -13,7 +13,10 @@
               <i class="fa fa-pencil edit-button about-edit-button admin" aria-hidden="true"></i>
             </div>
           <% end %>
-          <h2 class="about-header"><%=section.header%></h2>
+          <div class="about-header">
+            <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
+            <h2 class="about-header"><%=section.header%></h2>
+          </div>
           <p class="about-content"><%=section.content%></p>
         </div>
 
