@@ -1,9 +1,9 @@
 <div class="container">
 
   <div class="tabs filter-tabs">
-    <a class="tab active btn btn-default btn-small" data-filter="*">All Photos</a>
+    <a class="tab active btn btn-default btn-sm" data-filter="*">All Photos</a>
     <% @categories.each do |category| %>
-      <a class="tab btn btn-default btn-small" data-filter=".<%= category.name.downcase %>"><%= category.name.titlecase %></a>
+      <a class="tab btn btn-default btn-sm" data-filter=".<%= category.name.downcase %>"><%= category.name.titlecase %></a>
     <% end %>
   </div>
 
@@ -18,12 +18,12 @@
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: "photo", width: 300, crop: :scale)%>
 
           <% if admin_user? %>
-            <div class="photo-admin-buttons">
-              <%= link_to new_photo_path(photo), class: "edit-button" do %>
+            <div class="photo-admin-buttons admin admin-button-icons">
+              <%= link_to new_photo_path(photo), class: "admin-button edit-button btn btn-xs btn-default" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               <% end %>
 
-              <%= link_to new_photo_path(photo), method: :delete, class: "delete-button" do %>
+              <%= link_to photo_path(photo), method: :delete, class: "admin-button delete-button btn btn-xs btn-default" do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             </div>

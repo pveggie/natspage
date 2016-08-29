@@ -1,9 +1,1 @@
-<%= simple_form_for @photo do |f| %>
-  <%= f.input :caption_title %>
-  <%= f.input :caption_description %>
-<!--   <%= f.input :image_location, label: "Image", as: :file, :hint => image_tag(f.object.image_location.url, width: 100) %> -->
-  <%= f.input :image_location, label: "Image", required: true %>
-  <%= f.input :image_location_cache, as: :hidden %>
-  <%= f.association :categories, collection: Category.all.order(:name) %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'shared/photo_form' %>
