@@ -8,7 +8,7 @@
       </div>
 
       <!-- Dropdown list appearing on mobile only -->
-      <div class="dropdown hidden-xs hidden-sm hidden-md-hidden-lg">
+      <div class="dropdown hidden-md hidden-lg">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
           <li><%= link_to "Home", root_path %></li>
@@ -16,6 +16,8 @@
           <li><%= link_to "Contact", "#" %></li>
           <% if admin_user? %>
             <li><%= link_to'Add Photo', new_photo_path %></li>
+            <li><%= link_to 'Admin Area', admin_dashboard_path %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
           <% end %>
         </ul>
       </div>
@@ -34,7 +36,9 @@
       <% if admin_user? %>
         <div class="links-right admin admin-button-links">
           <ul class="list-inline">
-            <li><%= link_to'Add Photo', new_photo_path %></li>
+            <li><%= link_to'Add Photo', new_photo_path, class: 'btn btn-default' %></li>
+            <li><%= link_to 'Admin Area', admin_dashboard_path, class: 'btn btn-default' %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, class: 'btn btn-default', method: :delete %></li>
           </ul>
         </div>
       <% end %>
