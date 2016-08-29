@@ -6,7 +6,7 @@ tmp/*
 .DS_Store
 public/assets
 public/uploads
-spec/examples
+spec/examples.txt
 
 # Ignore application configuration
 /config/application.yml
