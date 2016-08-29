@@ -1,5 +1,6 @@
 FactoryGirl.define do
 
+  # users
   factory :user do
     email "test@test.com"
     password "test_password"
@@ -9,6 +10,7 @@ FactoryGirl.define do
     end
   end
 
+  # photos and categories
   factory :category do
     name Faker::Lorem.words(2).join
   end
@@ -33,9 +35,18 @@ FactoryGirl.define do
     category_id { create(:category)[:id] }
   end
 
-  factory :about_section do
+  # pages
+  factory :about_section, class: Pages::AboutSection do
     header Faker::Lorem.words(2,false).join
     content Faker::Lorem.paragraphs(2)
+  end
+
+  factory :contact_section, class: Pages::ContactSection do
+    email Faker::Internet.email
+    facebook_url Faker::Internet.url('facebook.com')
+    flickr_url Faker::Internet.url('flickr.com')
+    twitter_url Faker::Internet.url('twitter.com')
+    instagram_url Faker::Internet.url('instagram.com')
   end
 end
 
