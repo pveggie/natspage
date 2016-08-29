@@ -1,25 +1,27 @@
 <div class="navbar navbar-fixed">
   <div class="container">
 
+    <!-- Logo and mobile/tablet dropdown menu -->
     <div class="navbar-top">
       <div class="navbar-logo">
         <h1><%= "Natalie Lunt Photography" %></h1>
       </div>
 
       <!-- Dropdown list appearing on mobile only -->
-      <div class="dropdown  hidden-md-hidden-lg">
+      <div class="dropdown hidden-xs hidden-sm hidden-md-hidden-lg">
         <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "About",pages_about_path %></li>
           <li><%= link_to "Contact", "#" %></li>
           <% if admin_user? %>
-          <li><%= link_to'Add Photo', new_photo_path %></li>
+            <li><%= link_to'Add Photo', new_photo_path %></li>
           <% end %>
         </ul>
       </div>
     </div>
 
+    <!-- Link buttons & admin link buttons -->
     <div class="navbar-links hidden-xs hidden-sm">
       <div class="links-left">
         <ul class="list-inline">
@@ -30,12 +32,12 @@
       </div>
 
       <% if admin_user? %>
-      <div class="links-right admin admin-button-links">
-        <ul class="list-inline">
-          <li><%= link_to'Add Photo', new_photo_path %></li>
-        </ul>
-        <% end %>
-      </div>
+        <div class="links-right admin admin-button-links">
+          <ul class="list-inline">
+            <li><%= link_to'Add Photo', new_photo_path %></li>
+          </ul>
+        </div>
+      <% end %>
     </div>
 
   </div>

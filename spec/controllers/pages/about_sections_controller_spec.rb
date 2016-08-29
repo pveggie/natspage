@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AboutSectionsController, focus: true do
+RSpec.describe Pages::AboutSectionsController, focus: true do
   let(:about_section) { create(:about_section) }
 
   let(:valid_attributes) { attributes_for(:about_section, header: "Updated")}

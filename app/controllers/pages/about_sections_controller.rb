@@ -1,6 +1,6 @@
 # This is for updating the admin editable text in the about page (pages/about)
 # Displaying the about text is handled by the pages controller
-class AboutSectionsController < ApplicationController
+class Pages::AboutSectionsController < ApplicationController
   before_action :confirm_admin
   before_action :find_about_section, only: [:update]
 

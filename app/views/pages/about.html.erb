@@ -1,12 +1,12 @@
 <%= content_for :title do %>
   Natalie Lunt Photography - About
 <% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
 
-      <% @about_sections.each do |section| %>
-
+      <% @about_sections.each do |about_section| %>
         <div class="about-section about-holder align-left">
           <% if admin_user? %>
             <div class="admin">
@@ -15,17 +15,17 @@
           <% end %>
           <div class="about-header">
             <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
-            <h2 class="about-header"><%=section.header%></h2>
+            <h2 class="about-header"><%=about_section.header%></h2>
           </div>
-          <p class="about-content"><%=section.content%></p>
+          <p class="about-content"><%=about_section.content%></p>
         </div>
 
         <% if admin_user? %>
           <div id="about-edit-form" class="hidden">
-            <%= simple_form_for(section, as: :about_section) do |f| %>
-            <%= f.input :header %>
-            <%= f.input :content %>
-            <%= f.button :submit, value: "Update about section" %>
+            <%= simple_form_for([:pages, about_section]) do |f| %>
+              <%= f.input :header %>
+              <%= f.input :content %>
+              <%= f.button :submit, value: "Update about section" %>
             <% end %>
           </div>
         <% end %>
