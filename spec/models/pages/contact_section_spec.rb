@@ -23,18 +23,54 @@ RSpec.describe Pages::ContactSection, type: :model do
     context "for valid addresses" do
       it { expect(contact_section).to allow_value("me@gmail.com")
         .for(:email) }
-      it { expect(contact_section).to allow_value("blahblah@hotmail.com")
+      it { expect(contact_section).to allow_value("blahblah@hotmail.co.uk")
         .for(:email) }
       it { expect(contact_section).to allow_value("AGIOJ14ljg@aljgajlaj.meh")
         .for(:email) }
     end
   end
 
+  describe "Social media link validation" do
+    context "for invalid addresses" do
+      it { expect(contact_section).to_not allow_value("something")
+        .for(:facebook_url) }
+      it { expect(contact_section).to_not allow_value("www.twitter.com/")
+        .for(:twitter_url) }
+      it { expect(contact_section).to_not allow_value("&:/@instagram.com/weird_characters")
+        .for(:instagram_url) }
+      it { expect(contact_section).to_not allow_value("www.facebook.com/wrongplatform")
+        .for(:flickr_url) }
+      it { expect(contact_section).to_not allow_value("www.facebook.com/url with spaces")
+        .for(:facebook_url) }
+    end
+
+    context "for valid addresses" do
+      it { expect(contact_section).to allow_value("facebook.com/my_name")
+        .for(:facebook_url) }
+      it { expect(contact_section).to allow_value("https://flickr.com/i-am-me33")
+        .for(:flickr_url) }
+      it { expect(contact_section).to allow_value("www.instagram.co.uk/someone")
+        .for(:instagram_url) }
+      it { expect(contact_section).to allow_value("http://www.twitter.com/person.of_some-sort")
+        .for(:twitter_url) }
+    end
+
+  end
+
   describe "Instance methods" do
-    it "#clean_data gets downcases attributes" do
+    it "#clean_data downcases attribute values" do
       contact_section = build(:contact_section, email: "ABC@something.com")
-      p contact_section.clean_data
-      expect(contact_section.clean_data[:email]).to eq("abc@something.com")
+      expect(contact_section.clean_data[:email])
+        .to eq("abc@something.com")
+    end
+
+    it "#clean_data strips white space from attribute values" do
+      contact_section = build(
+        :contact_section,
+        twitter_url: "  www.twitter.com/myname    "
+      )
+      expect(contact_section.clean_data[:twitter_url])
+        .to eq("www.twitter.com/myname")
     end
   end
 end
