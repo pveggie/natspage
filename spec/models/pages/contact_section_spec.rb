@@ -60,7 +60,8 @@ RSpec.describe Pages::ContactSection, type: :model do
   describe "Instance methods" do
     it "#clean_data downcases attribute values" do
       contact_section = build(:contact_section, email: "ABC@something.com")
-      expect(contact_section.clean_data[:email])
+
+      expect(cleaned_data(contact_section)[:email])
         .to eq("abc@something.com")
     end
 
@@ -69,8 +70,13 @@ RSpec.describe Pages::ContactSection, type: :model do
         :contact_section,
         twitter_url: "  www.twitter.com/myname    "
       )
-      expect(contact_section.clean_data[:twitter_url])
+
+      expect(cleaned_data(contact_section)[:twitter_url])
         .to eq("www.twitter.com/myname")
     end
+  end
+
+  def cleaned_data(data)
+    data.instance_eval { clean_data }
   end
 end

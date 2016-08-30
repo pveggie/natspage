@@ -12,12 +12,15 @@ class Pages::ContactSection < ActiveRecord::Base
   validate :email_address_is_valid
   validate :social_media_links_are_valid
   # == Scopes ===============================================================
-  before_validation :clean_data
-  # == Callbacks ============================================================
 
+  # == Callbacks ============================================================
+  before_validation :clean_data
   # == Class Methods ========================================================
 
   # == Instance Methods =====================================================
+  private
+
+  # ====== Instance methods: Custom Validation
   def email_address_is_valid
     email_regex = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/
     if email.present? && email[email_regex].nil?
@@ -29,23 +32,31 @@ class Pages::ContactSection < ActiveRecord::Base
     attributes.each do |key, value|
       next unless value.is_a?(String) && key != "email"
 
-      # first want to make sure correct domain_name is used for attribute
       domain_name = key.downcase.gsub("_url", "")
-      if value[/#{domain_name}/].nil?
-        errors
-          .add(key.to_sym, "does not correspond with the correct social media site.")
-      end
 
-      social_media_regex = /\A((http|https)\:\/\/)?(www\.)?#{domain_name}.\w+(.\w+)?\/[\w_\-\.]+\z/
-
-      if value[social_media_regex].nil?
-        errors.add(key.to_sym, "is not a valid url. Please check ")
-      end
+      confirm_domain_matches_attribute(domain_name, value, key)
+      confirm_as_url(domain_name, value, key)
     end
   end
 
+  def confirm_domain_matches_attribute(domain_name, url, key)
+    if url[/#{domain_name}/].nil?
+      errors.add(key
+        .to_sym, "does not correspond with the correct social media site.")
+    end
+  end
+
+  def confirm_as_url(domain_name, url, key)
+    url_regex =
+      /\A((http|https)\:\/\/)?(www\.)?#{domain_name}.\w+(.\w+)?\/[\w_\-\.]+\z/
+    if url[url_regex].nil?
+      errors.add(key.to_sym, "is not a valid url. Please check ")
+    end
+  end
+
+  # ====== Instance methods: Callbacks
   def clean_data
-    clean_attributes = Hash.new
+    clean_attributes = {}
     attributes.each do |key, value|
       # clean user inputted strings
       value = value.downcase.strip if value.is_a?(String)
