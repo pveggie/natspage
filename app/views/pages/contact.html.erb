@@ -1,0 +1,38 @@
+<%= content_for :title do %>
+  Natalie Lunt Photography - Contact
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+
+      <% @contact_sections.each do |contact_section| %>
+        <div class="contact-section contact-holder align-left">
+          <% if admin_user? %>
+            <div class="admin">
+              <i class="fa fa-pencil edit-button contact-edit-button admin btn btn-default" aria-hidden="true"></i>
+            </div>
+          <% end %>
+          <div class="contact-header">
+            <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
+            <h2 class="contact-header"><%=contact_section.header%></h2>
+          </div>
+          <div class="contact-content">
+            <p><%=contact_section.content%></p>
+          </div>
+        </div>
+
+        <% if admin_user? %>
+          <div id="contact-edit-form" class="hidden">
+            <%= simple_form_for([:pages, contact_section]) do |f| %>
+              <%= f.input :header %>
+              <%= f.input :content %>
+              <%= f.button :submit, value: "Update contact section" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
