@@ -4,7 +4,7 @@ RSpec.describe "pages/about", type: :view, focus: true do
   before(:each) do
     assign(:about_sections,
            [
-             create(:about_section, content: "I am a message.")
+             build(:about_section, content: "I am a message.")
            ])
   end
 
@@ -27,7 +27,9 @@ RSpec.describe "pages/about", type: :view, focus: true do
 
     context "when admin user is logged in" do
       it "renders edit buttons" do
+        assign(:about_sections, [create(:about_section)])
         sign_in(admin)
+
         render
         expect(rendered).to have_css('.edit-button')
       end

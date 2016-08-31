@@ -7,30 +7,35 @@
     <div class="col-xs-12 col-sm-8">
 
       <% @contact_sections.each do |contact_section| %>
-        <div class="contact-section contact-holder align-left">
+        <div class="pages-section pages-holder align-left">
+
           <% if admin_user? %>
             <div class="admin">
-              <i class="fa fa-pencil edit-button contact-edit-button admin btn btn-default" aria-hidden="true"></i>
+              <i class="fa fa-pencil edit-button pages-edit-button admin btn btn-default" aria-hidden="true"></i>
             </div>
           <% end %>
-          <div class="contact-header">
-            <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
-            <h2 class="contact-header"><%=contact_section.header%></h2>
-          </div>
-          <div class="contact-content">
-            <p><%=contact_section.content%></p>
-          </div>
-        </div>
 
-        <% if admin_user? %>
-          <div id="contact-edit-form" class="hidden">
-            <%= simple_form_for([:pages, contact_section]) do |f| %>
-              <%= f.input :header %>
-              <%= f.input :content %>
-              <%= f.button :submit, value: "Update contact section" %>
-            <% end %>
+          <div class="pages-header">
+            <h2>Contact</h2>
           </div>
-        <% end %>
+
+          <div class="pages-content contact-content">
+            <p>Get in touch if you have questions or comments!</p>
+
+            <div class= "email">
+              <div><i class="fa fa-envelope" aria-hidden="true"></i></div>
+              <div><%= contact_section.email %></div>
+            </div>
+
+            <div class="pages-content-social-media">
+              <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
+              <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
+              <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
+              <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
+            </div>
+          </div>
+
+        </div>
       <% end %>
 
     </div>
