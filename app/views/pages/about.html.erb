@@ -10,12 +10,12 @@
         <div class="pages-section pages-holder align-left">
           <% if admin_user? %>
             <div class="admin">
-              <i class="fa fa-pencil edit-button pages-edit-button admin btn btn-default" aria-hidden="true"></i>
+              <i class="fa fa-pencil edit-button about-edit-button admin btn btn-default" aria-hidden="true"></i>
             </div>
           <% end %>
-          <div class="pages-header about-picture-header">
+          <div class="pages-header about-header">
             <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
-            <h2><%=about_section.header%></h2>
+            <h2 class="about-header"><%=about_section.header%></h2>
           </div>
           <div class="pages-content about-content">
             <p><%=about_section.content%></p>
@@ -23,7 +23,7 @@
         </div>
 
         <% if admin_user? %>
-          <div id="pages-form about-edit-form" class="hidden">
+          <div id="about-edit-form" class="hidden">
             <%= simple_form_for([:pages, about_section],
                                   as: :about_section,
                                   url: pages_about_section_path(about_section.id)
