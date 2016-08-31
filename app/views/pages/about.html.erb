@@ -24,7 +24,10 @@
 
         <% if admin_user? %>
           <div id="about-edit-form" class="hidden">
-            <%= simple_form_for([:pages, about_section]) do |f| %>
+            <%= simple_form_for([:pages, about_section],
+                                  as: :about_section,
+                                  url: pages_about_section_path(about_section.id)
+                                ) do |f| %>
               <%= f.input :header %>
               <%= f.input :content %>
               <%= f.button :submit, value: "Update about section" %>

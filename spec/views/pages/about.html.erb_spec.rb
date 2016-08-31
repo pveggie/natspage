@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "pages/about", type: :view, focus: true do
-
   before(:each) do
-    assign(:about_sections, [
-      build(:about_section, header: "About me", content: "I am a message.")
-      ])
+    assign(:about_sections,
+           [
+             create(:about_section, content: "I am a message.")
+           ])
   end
 
   let(:admin) { create(:admin) }
@@ -13,7 +13,7 @@ RSpec.describe "pages/about", type: :view, focus: true do
   describe "Standard view" do
     it "renders the about sections" do
       render
-      expect(render).to match /I am a message/
+      expect(render).to match(/I am a message/)
     end
   end
 
