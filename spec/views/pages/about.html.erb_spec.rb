@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "pages/about", type: :view, focus: true do
-
   before(:each) do
-    assign(:about_sections, [
-      build(:about_section, header: "About me", content: "I am a message.")
-      ])
+    assign(:about_sections,
+           [
+             build(:about_section, content: "I am a message.")
+           ])
   end
 
   let(:admin) { create(:admin) }
@@ -13,11 +13,15 @@ RSpec.describe "pages/about", type: :view, focus: true do
   describe "Standard view" do
     it "renders the about sections" do
       render
-      expect(render).to match /I am a message/
+      expect(render).to match(/I am a message/)
     end
   end
 
   describe "Button rendering" do
+    before do
+      assign(:about_sections, [create(:about_section)])
+    end
+
     context "when no admin user is logged in" do
       it "does not render edit buttons" do
         render
@@ -28,6 +32,7 @@ RSpec.describe "pages/about", type: :view, focus: true do
     context "when admin user is logged in" do
       it "renders edit buttons" do
         sign_in(admin)
+
         render
         expect(rendered).to have_css('.edit-button')
       end

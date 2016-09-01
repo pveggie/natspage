@@ -7,24 +7,27 @@
     <div class="col-xs-12 col-sm-8">
 
       <% @about_sections.each do |about_section| %>
-        <div class="about-section about-holder align-left">
+        <div class="pages-section pages-holder align-left">
           <% if admin_user? %>
             <div class="admin">
               <i class="fa fa-pencil edit-button about-edit-button admin btn btn-default" aria-hidden="true"></i>
             </div>
           <% end %>
-          <div class="about-header">
+          <div class="pages-header about-header">
             <%= image_tag 'profile.jpg', class: 'avatar-circle' %>
             <h2 class="about-header"><%=about_section.header%></h2>
           </div>
-          <div class="about-content">
+          <div class="pages-content about-content">
             <p><%=about_section.content%></p>
           </div>
         </div>
 
         <% if admin_user? %>
           <div id="about-edit-form" class="hidden">
-            <%= simple_form_for([:pages, about_section]) do |f| %>
+            <%= simple_form_for([:pages, about_section],
+                                  as: :about_section,
+                                  url: pages_about_section_path(about_section)
+                                ) do |f| %>
               <%= f.input :header %>
               <%= f.input :content %>
               <%= f.button :submit, value: "Update about section" %>

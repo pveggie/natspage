@@ -16,7 +16,7 @@ class Pages::AboutSectionsController < ApplicationController
   private
 
   def find_about_section
-    @about_section = AboutSection.find(params[:id])
+    @about_section = Pages::AboutSection.find(params[:id])
   end
 
   def about_section_params

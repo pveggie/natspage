@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :photos, except: [:show]
 
   get 'pages/about' => 'pages#about'
+  get 'pages/contact' => 'pages#contact'
   namespace :pages do
     resources :about_sections
+    resources :contact_sections
   end
 end
