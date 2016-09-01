@@ -18,6 +18,10 @@ RSpec.describe "pages/about", type: :view, focus: true do
   end
 
   describe "Button rendering" do
+    before do
+      assign(:about_sections, [create(:about_section)])
+    end
+
     context "when no admin user is logged in" do
       it "does not render edit buttons" do
         render
@@ -27,7 +31,6 @@ RSpec.describe "pages/about", type: :view, focus: true do
 
     context "when admin user is logged in" do
       it "renders edit buttons" do
-        assign(:about_sections, [create(:about_section)])
         sign_in(admin)
 
         render

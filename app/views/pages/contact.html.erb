@@ -28,10 +28,18 @@
             </div>
 
             <div class="pages-content-social-media">
-              <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
-              <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
-              <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
-              <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
+              <% unless contact_section.facebook_url.blank? %>
+                <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
+              <% end %>
+              <% unless contact_section.twitter_url.blank? %>
+                <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
+              <% end %>
+              <% unless contact_section.flickr_url.blank? %>
+                <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
+              <% end %>
+              <% unless contact_section.instagram_url.blank? %>
+                <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
+              <% end %>
             </div>
           </div>
 
