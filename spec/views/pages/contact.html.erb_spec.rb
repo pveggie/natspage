@@ -4,7 +4,13 @@ RSpec.describe "pages/contact", type: :view, focus: true do
   before(:each) do
     assign(:contact_sections,
            [
-             build(:contact_section, email: "mail@something.com")
+             create(:contact_section,
+                    email: "mail@something.com",
+                    facebook_url: "https://www.facebook.com/metallica",
+                    twitter_url: "https://twitter.com/bioware",
+                    flickr_url: "https://www.flickr.com/photos/natlunt82",
+                    instagram_url: "https://www.instagram.com/metallica/"
+                  )
            ])
   end
 
@@ -16,52 +22,73 @@ RSpec.describe "pages/contact", type: :view, focus: true do
       expect(render).to match(/mail@something.com/)
     end
 
-    # SOCIAL MEDIA ICONS
-    context "with corresponding social media urls" do
-      it "renders the facebook_icon" do
-        render
-        expect(render).to have_css('.fa-facebook-square')
+    describe "Social media icons" do
+      context "with corresponding social media urls" do
+        it "renders the facebook_icon" do
+          render
+          expect(render).to have_css('.fa-facebook-square')
+        end
+
+        it "renders the twitter icon" do
+          render
+          expect(render).to have_css('.fa-twitter-square')
+        end
+
+        it "renders the flickr icon" do
+          render
+          expect(render).to have_css('.fa-flickr')
+        end
+
+        it "renders the instagram icon" do
+          render
+          expect(render).to have_css('.fa-instagram')
+        end
+
+        it "links to facebook page on a separate tab" do
+          expect(render)
+            .to have_selector('a[href="https://www.facebook.com/metallica"][target="_blank"]')
+        end
+
+        it "links to twitter page on a separate tab" do
+          expect(render)
+            .to have_selector('a[href="https://twitter.com/bioware"][target="_blank"]')
+        end
+
+        it "links to flickr page on a separate tab" do
+          expect(render)
+            .to have_selector('a[href="https://www.flickr.com/photos/natlunt82"][target="_blank"]')
+        end
+
+        it "links to instagram page on a separate tab" do
+          expect(render)
+            .to have_selector('a[href="https://www.instagram.com/metallica/"][target="_blank"]')
+        end
+
       end
 
-      it "renders the twitter icon" do
-        render
-        expect(render).to have_css('.fa-twitter-square')
-      end
+      context "without corresponding social media urls" do
+        it "does not render the facebook icon" do
+          assign(:contact_sections, [create(:contact_section, facebook_url: nil)])
+          expect(render).to_not have_css('.fa-facebook-square')
+        end
 
-      it "renders the flickr icon" do
-        render
-        expect(render).to have_css('.fa-flickr')
-      end
+        it "does not render the twitter icon" do
+          assign(:contact_sections, [create(:contact_section, twitter_url: nil)])
+          expect(render).to_not have_css('.fa-twitter-square')
+        end
 
-      it "renders the instagram icon" do
-        render
-        expect(render).to have_css('.fa-instagram')
-      end
-    end
+        it "does not render the flickr icon" do
+          assign(:contact_sections, [create(:contact_section, flickr_url: nil)])
+          expect(render).to_not have_css('.fa-flickr')
+        end
 
-    context "without corresponding social media urls" do
-      it "does not render the facebook icon" do
-        assign(:contact_sections, [build(:contact_section, facebook_url: nil)])
-        expect(render).to_not have_css('.fa-facebook-square')
-      end
-
-      it "does not render the twitter icon" do
-        assign(:contact_sections, [build(:contact_section, twitter_url: nil)])
-        expect(render).to_not have_css('.fa-twitter-square')
-      end
-
-      it "does not render the flickr icon" do
-        assign(:contact_sections, [build(:contact_section, flickr_url: nil)])
-        expect(render).to_not have_css('.fa-flickr')
-      end
-
-      it "does not render the instagram icon" do
-        assign(:contact_sections, [build(:contact_section, instagram_url: nil)])
-        expect(render).to_not have_css('.fa-instagram')
+        it "does not render the instagram icon" do
+          assign(:contact_sections, [create(:contact_section, instagram_url: nil)])
+          expect(render).to_not have_css('.fa-instagram')
+        end
       end
     end
   end
-
   describe "Admin buttons" do
     before do
       assign(:contact_sections, [create(:contact_section)])

@@ -21,6 +21,10 @@ RSpec.describe Pages::ContactSection, type: :model do
     end
 
     context "for valid addresses" do
+      # blank values should be possible in case admin wants to delete
+      # information in update form
+      it { expect(contact_section).to allow_value("")
+        .for(:email) }
       it { expect(contact_section).to allow_value("me@gmail.com")
         .for(:email) }
       it { expect(contact_section).to allow_value("blahblah@hotmail.co.uk")
@@ -45,11 +49,15 @@ RSpec.describe Pages::ContactSection, type: :model do
     end
 
     context "for valid addresses" do
+      # blank values should be possible in case admin wants to delete
+      # information in update form
+      it { expect(contact_section).to allow_value("")
+        .for(:facebook_url) }
       it { expect(contact_section).to allow_value("facebook.com/my_name")
         .for(:facebook_url) }
       it { expect(contact_section).to allow_value("https://flickr.com/i-am-me33")
         .for(:flickr_url) }
-      it { expect(contact_section).to allow_value("www.instagram.co.uk/someone")
+      it { expect(contact_section).to allow_value("www.instagram.co.uk/someone/")
         .for(:instagram_url) }
       it { expect(contact_section).to allow_value("http://www.twitter.com/person.of_some-sort")
         .for(:twitter_url) }

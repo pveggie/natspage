@@ -30,7 +30,7 @@ class Pages::ContactSection < ActiveRecord::Base
 
   def social_media_links_are_valid
     attributes.each do |key, value|
-      next unless value.is_a?(String) && key != "email"
+      next unless value.is_a?(String) && !value.blank? && key != "email"
 
       domain_name = key.downcase.gsub("_url", "")
 
@@ -39,16 +39,16 @@ class Pages::ContactSection < ActiveRecord::Base
     end
   end
 
-  def confirm_domain_matches_attribute(domain_name, url, key)
-    if url[/#{domain_name}/].nil?
+  def confirm_domain_matches_attribute(dom_name, url, key)
+    if url[/#{dom_name}/].nil?
       errors.add(key
         .to_sym, "does not correspond with the correct social media site.")
     end
   end
 
-  def confirm_as_url(domain_name, url, key)
+  def confirm_as_url(dom_name, url, key)
     url_regex =
-      /\A((http|https)\:\/\/)?(www\.)?#{domain_name}.\w+(.\w+)?\/[\w_\-\.]+\z/
+      /\A((http|https)\:\/\/)?(www\.)?#{dom_name}.\w+(.\w+)?\/[\w_\-\.]+\/?\z/
     if url[url_regex].nil?
       errors.add(key.to_sym, "is not a valid url. Please check ")
     end

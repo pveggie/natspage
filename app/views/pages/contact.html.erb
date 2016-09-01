@@ -11,9 +11,44 @@
 
           <% if admin_user? %>
             <div class="admin">
-              <i class="fa fa-pencil edit-button pages-edit-button admin btn btn-default" aria-hidden="true"></i>
+              <!-- Triggers modal form -->
+              <i class="fa fa-pencil edit-button pages-edit-button admin btn btn-default" aria-hidden="true" data-toggle="modal" data-target="#contact-edit-form"></i>
             </div>
           <% end %>
+
+
+        <!-- Modal form for editing contact section data-->
+        <div class="modal fade" id="contact-edit-form" tabindex="-1" role="dialog" aria-labelledby="contactEditLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="contactEditLabel">Edit Contact Data</h4>
+              </div>
+
+              <%= simple_form_for([:pages, contact_section],
+                                    as: :contact_section,
+                                    url: pages_contact_section_path(contact_section)
+                                  ) do |f| %>
+
+                <div class="modal-body">
+                  <%= f.input :email %>
+                  <%= f.input :facebook_url, label: "Facebook URL" %>
+                  <%= f.input :twitter_url, label: "Twitter URL" %>
+                  <%= f.input :flickr_url, label: "Flickr URL" %>
+                  <%= f.input :instagram_url, label: "Instagram URL" %>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <%= f.button :submit, value: "Save changes", class: "btn-btn-primary" %>
+                </div>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
 
           <div class="pages-header">
             <h2>Contact</h2>
@@ -29,16 +64,24 @@
 
             <div class="pages-content-social-media">
               <% unless contact_section.facebook_url.blank? %>
-                <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
+                <%= link_to("#{contact_section.facebook_url}", target: "_blank") do %>
+                  <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
+                <% end %>
               <% end %>
               <% unless contact_section.twitter_url.blank? %>
-                <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
+                <%= link_to("#{contact_section.twitter_url}", target: "_blank") do %>
+                  <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
+                <% end %>
               <% end %>
               <% unless contact_section.flickr_url.blank? %>
-                <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
+                <%= link_to("#{contact_section.flickr_url}", target: "_blank") do %>
+                  <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
+                <% end %>
               <% end %>
               <% unless contact_section.instagram_url.blank? %>
-                <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
+                <%= link_to("#{contact_section.instagram_url}", target: "_blank") do %>
+                  <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
+                <% end %>
               <% end %>
             </div>
           </div>

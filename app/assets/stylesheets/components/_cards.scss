@@ -104,6 +104,11 @@
 
   i {
     color: $gray-light;
+
+    &:hover {
+      color: $brand-color;
+      opacity: 0.8;
+    }
   }
 
 }
