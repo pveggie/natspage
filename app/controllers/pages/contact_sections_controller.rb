@@ -10,7 +10,8 @@ class Pages::ContactSectionsController < ApplicationController
     if @contact_section.save
       redirect_to pages_contact_path
     else
-      render 'pages/contact'
+      flash[:alert] = "Data not updated."
+      redirect_to pages_contact_path
     end
   end
 

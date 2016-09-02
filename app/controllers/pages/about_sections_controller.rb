@@ -9,7 +9,8 @@ class Pages::AboutSectionsController < ApplicationController
     if @about_section.save
       redirect_to pages_about_path
     else
-      render 'pages/about'
+      flash[:alert] = "Data not updated."
+      redirect_to pages_about_path
     end
   end
 
