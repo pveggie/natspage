@@ -67,11 +67,11 @@ RSpec.describe Pages::ContactSectionsController, type: :controller do
           expect(contact_section.email).to eql(email)
         end
 
-        it "renders the contact page" do
+        it "redirects to the contact page" do
           put :update,
               id: contact_section.to_param,
               contact_section: invalid_attributes
-          expect(response).to render_template('pages/contact')
+          expect(response).to redirect_to(pages_contact_path)
         end
       end
     end

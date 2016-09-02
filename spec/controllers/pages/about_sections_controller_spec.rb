@@ -56,9 +56,9 @@ RSpec.describe Pages::AboutSectionsController, focus: true do
           expect(about_section.header).to eql(header)
         end
 
-        it "renders the about page" do
+        it "redirects to the about page" do
           put :update, { id: about_section.to_param, about_section: invalid_attributes }
-          expect(response).to render_template('pages/about')
+          expect(response).to redirect_to(pages_about_path)
         end
       end
     end
