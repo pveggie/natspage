@@ -22,11 +22,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     z-index: 2;
-    color: $gray-light;
+
+    color: $gray-lighter;
+    text-shadow: 2px 2px 3px black;
     background: black;
-    opacity: 0.6;
+    opacity: 0.8;
+    // font-family: $base-font;
 
     h5 {
+      font-family: $base-font;
+      font-weight: bold;
       margin: 0px;
     }
   }
