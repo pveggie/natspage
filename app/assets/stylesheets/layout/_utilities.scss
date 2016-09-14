@@ -12,9 +12,6 @@ body {
   margin-top: 140px;
 }
 
-.holder {
-  position: relative;
-}
 // Paddings
 
 .padded {
@@ -39,4 +36,23 @@ body {
 // Display
 .hidden {
   display: none;
+}
+
+.inline-divs {
+  div {
+    display: inline-block;
+    padding: 0 5px;
+  }
+}
+
+.inline-no-padding {
+  div {
+    display: inline-block;
+  }
+}
+
+.flex-container-align-bottom-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }

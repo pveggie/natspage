@@ -33,7 +33,7 @@ RSpec.feature "Create photos", :type => :feature, focus: true do
 
       within(:css, ".gallery") do
         expect(page).to have_content("Performance at Jahrhunderthalle 2016")
-        expect(page).to have_css(".photo-holder")
+        expect(page).to have_css(".card-photo")
 
         # requires js to be true
         expect(page).to have_css("img")

@@ -14,7 +14,7 @@ ActiveAdmin.register Photo do
   # **** CUSTOM VIEWS **** #
   # INDEX GRID VIEW - DETAILS
   index as: :grid, columns: 3, label: "Details" do |photo|
-    div class: "photo-holder" do
+    div class: "card-photo" do
       resource_selection_cell photo
       h4 photo.caption_title
       div link_to image_tag(photo.image_location, width: 200), edit_admin_photo_path(photo)

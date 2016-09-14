@@ -1,0 +1,27 @@
+<div class="modal-content">
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="contactEditLabel">Edit Contact Data</h4>
+  </div>
+
+  <%= simple_form_for([:pages, contact_section],
+                        as: :contact_section,
+                        url: pages_contact_section_path(contact_section)
+                      ) do |f| %>
+
+    <div class="modal-body">
+      <%= f.input :email %>
+      <%= f.input :facebook_url, label: "Facebook URL" %>
+      <%= f.input :twitter_url, label: "Twitter URL" %>
+      <%= f.input :flickr_url, label: "Flickr URL" %>
+      <%= f.input :instagram_url, label: "Instagram URL" %>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.button :submit, value: "Save changes", class: "btn-btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
