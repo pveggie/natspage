@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="tabs filter-tabs">
-    <a class="tab active btn btn-default btn-sm" data-filter="*">All Photos</a>
+    <a class="tab tab-active btn btn-default btn-sm" data-filter="*">All Photos</a>
     <% @categories.each do |category| %>
       <a class="tab btn btn-default btn-sm" data-filter=".<%= category.name.downcase %>"><%= category.name.titlecase %></a>
     <% end %>
@@ -13,24 +13,24 @@
     <% @photos.each do |photo| %>
       <!-- categories_string method is in photo model -->
       <div class="grid-item <%= photo.categories_string %>" data-category="<%= photo.categories_string %>">
-        <div class="photo-holder">
+        <div class="card-photo">
 
           <%= image_tag(photo.image_location, alt: photo.image_alt, class: "photo", width: 300, crop: :scale)%>
 
           <% if admin_user? %>
-            <div class="photo-admin-buttons admin admin-button-icons">
-              <%= link_to new_photo_path(photo), class: "admin-button edit-button btn btn-xs btn-default" do %>
+            <div class="card-photo-top-right">
+              <%= link_to new_photo_path(photo), class: "btn-admin btn-transparent btn btn-xs btn-default" do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               <% end %>
 
-              <%= link_to photo_path(photo), method: :delete, class: "admin-button delete-button btn btn-xs btn-default" do %>
+              <%= link_to photo_path(photo), method: :delete, class: "btn-admin btn-transparent btn btn-xs btn-default" do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             </div>
           <% end %>
 
           <% unless photo.caption_title.blank?  && photo.caption_description.blank? %>
-            <div id="photo-caption" class="caption hidden">
+            <div class="card-photo-bottom hidden photo-caption">
               <h5><%= photo.caption_title %></h5>
               <p><%= photo.caption_description %></p>
             </div>

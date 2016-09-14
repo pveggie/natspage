@@ -3,7 +3,7 @@
 //*********************//
 
 //
-.photo-holder {
+.card-photo {
   width: 100%;
   position: relative;
 
@@ -13,7 +13,7 @@
       // box-shadow: 0.5 0.5 0.5 rgba(50, 50, 50, 0.75);
   }
 
-  .caption {
+  .card-photo-bottom {
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -36,7 +36,7 @@
     }
   }
 
-  .photo-admin-buttons {
+  .card-photo-top-right {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -47,73 +47,41 @@
 //********************//
 // PAGES CARDS
 //********************//
-.pages-holder {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.card-pages {
   padding: 0 20px 20px 20px;
   margin: 0px 0px 20px 0px;
 
-  // border: 1px solid $gray-darker;
-
-  .pages-edit-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  .pages-header {
-    display: flex;
-    align-items: flex-end;
-
-    h2 {
-      // positioning when there's a picture handled in .about-picture-header
-      margin-bottom: 3px;
-      text-shadow: -3px 3px 3px $gray-lighter;
-      border: none;
-    }
-
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
-  }
-
-  .pages-content {
-    padding-top: 10px;
-  }
 }
 
-.about-picture-header {
+.card-pages-item-top{
+  min-height: 90px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 3px;
+
   h2 {
-    margin-left: -15px;
+    margin: 0;
+    padding: 0;
+    text-shadow: -3px 3px 3px $gray-lighter;
+    border: none;
   }
+
 }
 
-.email {
-  div {
-    display: inline-block;
-    padding: 0 5px;
-  }
+.card-pages-item-bottom {
+  padding-top: 10px;
 }
 
-.pages-content-social-media {
+.card-pages-item-social-media {
   margin-top: 20px;
   padding: 10px 0;
   display: flex;
   justify-content: space-around;
 
   background: $gray-darker;
-
-  i {
-    color: $gray-light;
-
-    &:hover {
-      color: $brand-color;
-      opacity: 0.8;
-    }
-  }
-
 }

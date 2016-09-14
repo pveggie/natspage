@@ -25,8 +25,8 @@ $( document ).ready(function() {
   $('.filter-tabs').each( function( i, tab ) {
     var $tab = $( tab );
     $tab.on( 'click', '.tab', function() {
-      $tab.find('.active').removeClass('active');
-      $( this ).addClass('active');
+      $tab.find('.tab-active').removeClass('tab-active');
+      $( this ).addClass('tab-active');
     });
   });
 
@@ -37,15 +37,15 @@ $( document ).ready(function() {
     return (this.length === 0 || !this.trim());
   };
 
-  $(".photo-holder").mouseover(function(event){
+  $(".card-photo").mouseover(function(event){
     // Show caption on hover
-    target = $(this).children('#photo-caption')
+    target = $(this).children('.photo-caption')
     target.removeClass('hidden');
   });
 
-  $(".photo-holder").mouseleave(function(event){
+  $(".card-photo").mouseleave(function(event){
     // Remove caption when not hovering
-    $(this).children('#photo-caption').addClass('hidden');
+    $(this).children('.photo-caption').addClass('hidden');
   });
 
 });

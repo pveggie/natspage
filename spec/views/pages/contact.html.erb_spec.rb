@@ -97,7 +97,7 @@ RSpec.describe "pages/contact", type: :view, focus: true do
     context "when no admin user is logged in" do
       it "does not render edit button" do
         render
-        expect(rendered).to_not have_css('.edit-button')
+        expect(rendered).to_not have_css('#contact-edit-button')
       end
     end
 
@@ -106,7 +106,7 @@ RSpec.describe "pages/contact", type: :view, focus: true do
         sign_in(admin)
 
         render
-        expect(rendered).to have_css('.edit-button')
+        expect(rendered).to have_css('#contact-edit-button')
       end
     end
 
