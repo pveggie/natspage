@@ -7,12 +7,12 @@
     <div class="col-xs-12 col-sm-8">
 
       <% @contact_sections.each do |contact_section| %>
-        <div class="pages-section pages-holder align-left">
+        <div class="pages-section card-pages align-left">
 
           <% if admin_user? %>
-            <div class="admin">
+            <div>
               <!-- Triggers modal form -->
-              <i class="fa fa-pencil edit-button pages-edit-button admin btn btn-default" aria-hidden="true" data-toggle="modal" data-target="#contact-edit-form"></i>
+              <i class="fa fa-pencil card-pages-item-top-right btn btn-default btn-admin" id="contact-edit-button" aria-hidden="true" data-toggle="modal" data-target="#contact-edit-form"></i>
             </div>
           <% end %>
 
@@ -64,22 +64,22 @@
 
             <div class="pages-content-social-media">
               <% unless contact_section.facebook_url.blank? %>
-                <%= link_to("#{contact_section.facebook_url}", target: "_blank") do %>
+                <%= link_to("#{contact_section.facebook_url}", target: "_blank", class: "btn-social-media") do %>
                   <div><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></div>
                 <% end %>
               <% end %>
               <% unless contact_section.twitter_url.blank? %>
-                <%= link_to("#{contact_section.twitter_url}", target: "_blank") do %>
+                <%= link_to("#{contact_section.twitter_url}", target: "_blank", class: "btn-social-media") do %>
                   <div><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></div>
                 <% end %>
               <% end %>
               <% unless contact_section.flickr_url.blank? %>
-                <%= link_to("#{contact_section.flickr_url}", target: "_blank") do %>
+                <%= link_to("#{contact_section.flickr_url}", target: "_blank", class: "btn-social-media") do %>
                   <div><i class="fa fa-2x fa-flickr" aria-hidden="true"></i></div>
                 <% end %>
               <% end %>
               <% unless contact_section.instagram_url.blank? %>
-                <%= link_to("#{contact_section.instagram_url}", target: "_blank") do %>
+                <%= link_to("#{contact_section.instagram_url}", target: "_blank", class: "btn-social-media") do %>
                   <div><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></div>
                 <% end %>
               <% end %>

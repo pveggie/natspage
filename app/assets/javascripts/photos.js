@@ -25,8 +25,8 @@ $( document ).ready(function() {
   $('.filter-tabs').each( function( i, tab ) {
     var $tab = $( tab );
     $tab.on( 'click', '.tab', function() {
-      $tab.find('.active').removeClass('active');
-      $( this ).addClass('active');
+      $tab.find('.tab-active').removeClass('tab-active');
+      $( this ).addClass('tab-active');
     });
   });
 

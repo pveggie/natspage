@@ -20,7 +20,7 @@ RSpec.feature "Editable contact page", type: :feature, js: true do
 
     # find edit button for contact section and click to load modal
     expect(page).to_not have_css('form')
-    find('.edit-button').click
+    find('#contact-edit-button').click
     expect(page).to have_css('form')
 
     # fill in form

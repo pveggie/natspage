@@ -14,9 +14,9 @@ RSpec.feature "Admin editable about page", :type => :feature, focus: true, js: t
       expect(page).to have_content("About Me")
       expect(page).to have_content("I am a message")
 
-      # find edit button for about section and click to load form
+      # find unhide button for about section and click to load form
       expect(page).to_not have_css('form')
-      find('.edit-button').click
+      find('.btn-unhide-form').click
       expect(page).to have_css("form")
 
       # fill in form

@@ -47,7 +47,7 @@
 //********************//
 // PAGES CARDS
 //********************//
-.pages-holder {
+.card-pages {
   position: relative;
   width: 100%;
   height: 100%;
@@ -56,7 +56,7 @@
 
   // border: 1px solid $gray-darker;
 
-  .pages-edit-button {
+  .card-pages-item-top-right {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -66,7 +66,7 @@
     }
   }
 
-  .pages-header {
+  .card-pages-item-top-left {
     display: flex;
     align-items: flex-end;
 
@@ -81,7 +81,7 @@
     padding-bottom: 10px;
   }
 
-  .pages-content {
+  .card-pages-item-bottom {
     padding-top: 10px;
   }
 }
@@ -106,14 +106,4 @@
   justify-content: space-around;
 
   background: $gray-darker;
-
-  i {
-    color: $gray-light;
-
-    &:hover {
-      color: $brand-color;
-      opacity: 0.8;
-    }
-  }
-
 }

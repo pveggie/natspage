@@ -33,14 +33,9 @@ RSpec.describe "photos/index", type: :view, focus:true do
 
   describe "Button rendering" do
     context "when no admin user is logged in" do
-      it "does not render an edit button" do
+      it "does not render admin buttons" do
         render
-        expect(rendered).to_not have_css('.edit-button')
-      end
-
-      it "does not render a delete button" do
-        render
-        expect(rendered).to_not have_css('.delete-button')
+        expect(rendered).to_not have_css('.btn-admin')
       end
     end
 

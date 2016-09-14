@@ -23,18 +23,18 @@ RSpec.describe "pages/about", type: :view, focus: true do
     end
 
     context "when no admin user is logged in" do
-      it "does not render edit buttons" do
+      it "does not form unhide buttons" do
         render
-        expect(rendered).to_not have_css('.edit-button')
+        expect(rendered).to_not have_css('.btn-unhide-form')
       end
     end
 
     context "when admin user is logged in" do
-      it "renders edit buttons" do
+      it "renders form unhide buttons" do
         sign_in(admin)
 
         render
-        expect(rendered).to have_css('.edit-button')
+        expect(rendered).to have_css('.btn-unhide-form')
       end
     end
   end
