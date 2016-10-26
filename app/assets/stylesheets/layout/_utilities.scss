@@ -12,6 +12,11 @@ body {
   margin-top: 140px;
 }
 
+@media (max-width: $screen-md-min) {
+  .content{
+    margin-top: 90px;
+  }
+}
 // Paddings
 
 .padded {
