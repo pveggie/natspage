@@ -7,9 +7,11 @@
   padding-top: 10px;
 }
 
-// @media (min-width: $screen-md-min) {
-//   padding-left: 70px;
-// }
+@media (max-width: $screen-md-min) {
+  .navbar{
+    height: 75px;
+  }
+}
 
 /* Optional class to fix the navbar on top */
 .navbar-fixed {
@@ -20,33 +22,44 @@
   opacity: 0.9;
   width: 100%;
   color: $gray-darker;
+  // border-bottom: 0.1px solid $gray-lighter;
 
 }
 
 .navbar-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+}
+
+@media (max-width: $screen-sm-min) {
+  .navbar-logo {
+    h1 {
+      padding-left: 5px;
+      font-size: 24px;
+    }
+  }
 }
 
 .navbar-logo {
   h1 {
+    text-transform: 60%;
     font-weight: bold;
     margin-bottom: 0;
   }
 }
 
-/* Navbar right section (with form, links, button) */
-.navbar-right {
-  margin-bottom: 0;
+/* SMALLER SCREENS ONLY **************************************/
+/* Navbar dropdown menu */
+.navbar-dropdown-mobile {
+  padding-right: 5px;
 }
 
-/* Navbar dropdown menu */
 .navbar-dropdown-menu {
-  margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
+
 .navbar-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -64,7 +77,7 @@
   height: 10px;
   width: 10px;
   position: absolute;
-  right: 10px;
+  right: 5px;
   top: -6px;
   background-color: white;
   transform: rotate(45deg);
@@ -72,6 +85,7 @@
   border-top: 1px solid #E6E6E6;
 }
 
+/* LARGER SCREENS ONLY           */
 // links along the bottom
 .navbar-links {
   display: flex;

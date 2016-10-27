@@ -10,6 +10,7 @@
 .grid-sizer,
 .grid-item {
   width: 100%;
+  margin-bottom: 10px;
 }
 
 //Masonry 3 column display for larger devices
@@ -38,10 +39,6 @@
   .grid-item {
     width: calc(100%/3 - 10px);
   }
-
-  .grid-item {
-    margin-bottom: 10px;
-   }
 
   .hidden {
     width: 0;
