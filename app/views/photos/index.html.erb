@@ -1,6 +1,5 @@
 <div class="container">
-
-  <div class="tabs filter-tabs">
+  <div class="tabs-wrapping tabs filter-tabs">
     <a class="tab tab-active btn btn-default btn-sm" data-filter="*">All Photos</a>
     <% @categories.each do |category| %>
       <a class="tab btn btn-default btn-sm" data-filter=".<%= category.name.downcase %>"><%= category.name.titlecase %></a>
