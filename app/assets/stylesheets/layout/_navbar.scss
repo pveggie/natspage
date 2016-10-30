@@ -51,6 +51,10 @@
 
 /* SMALLER SCREENS ONLY **************************************/
 /* Navbar dropdown menu */
+.dropdown-backdrop {
+  z-index: -1;
+}
+
 .navbar-dropdown-mobile {
   padding-right: 5px;
 }
