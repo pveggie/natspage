@@ -1,4 +1,1 @@
-inherit_from: ../../.rubocop.yml
-
-# Style/IndentationConsistency:
-#   EnforcedStyle: rails
+inherit_from: ~/code/.rubocop-rails.yml

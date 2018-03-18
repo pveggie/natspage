@@ -5,8 +5,8 @@ RSpec.describe User, type: :model, focus:true do
   describe "Factories" do
     context "Non-admin user" do
       it "has a valid factory" do
-        # Using the shortened version of FactoryGirl syntax.
-        # Add:  "config.include FactoryGirl::Syntax::Methods" (no quotes) to your spec_helper.rb
+        # Using the shortened version of FactoryBot syntax.
+        # Add:  "config.include FactoryBot::Syntax::Methods" (no quotes) to your spec_helper.rb
         expect(build(:user)).to be_valid
       end
     end

@@ -1,5 +1,4 @@
-FactoryGirl.define do
-
+FactoryBot.define do
   # users
   factory :user do
     email "test@test.com"
@@ -25,7 +24,9 @@ FactoryGirl.define do
     end
 
     factory :local_photo do
-      image_location File.open(File.join(Rails.root, 'spec/assets/test_image.jpg'))
+      image_location File.open(
+        File.join(Rails.root, 'spec/assets/test_image.jpg')
+      )
       category_ids { [create(:category)[:id]] }
     end
   end
@@ -37,7 +38,7 @@ FactoryGirl.define do
 
   # pages
   factory :about_section, class: Pages::AboutSection do
-    header Faker::Lorem.words(2,false).join
+    header Faker::Lorem.words(2, false).join
     content Faker::Lorem.paragraphs(2)
   end
 
@@ -49,4 +50,3 @@ FactoryGirl.define do
     instagram_url Faker::Internet.url('instagram.com')
   end
 end
-

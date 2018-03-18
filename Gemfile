@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.3'
 
-gem 'rails', '4.2.6'
+gem 'rails', '~> 4.2.10'
 gem 'puma'
-gem 'pg'
+gem "pg", "~> 0.18"
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
@@ -34,8 +34,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.4'
   gem 'spring-commands-rspec'
-  # https://github.com/thoughtbot/factory_girl_rails
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
 end
 
@@ -48,6 +47,7 @@ group :test do
   gem 'guard-rspec', require: false
   gem 'launchy'
   gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   # gem 'capybara-webkit'
   # gem 'selenium-webdriver'
   gem 'database_cleaner'
