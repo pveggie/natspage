@@ -47,6 +47,7 @@ group :test do
   gem 'guard-rspec', require: false
   gem 'launchy'
   gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   # gem 'capybara-webkit'
   # gem 'selenium-webdriver'
   gem 'database_cleaner'

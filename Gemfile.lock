@@ -217,6 +217,7 @@ GEM
       shellany (~> 0.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
+    phantomjs (2.1.1.0)
     poltergeist (1.17.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -387,6 +388,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   pg (~> 0.18)
+  phantomjs
   poltergeist
   pry-byebug
   pry-rails
