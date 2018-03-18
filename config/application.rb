@@ -9,8 +9,6 @@ Bundler.require(*Rails.groups)
 module Natspage
   # Application config
   class Application < Rails::Application
-    p config.secret_key_base =
-      Rails.application.secrets.secret_key_base || ENV["SECRET_KEY_BASE"]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
