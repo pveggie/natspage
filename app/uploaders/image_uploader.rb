@@ -1,5 +1,4 @@
-# encoding: utf-8
-
+# upload images to cloudingary
 class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   # Include RMagick or MiniMagick support:
@@ -27,8 +26,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process :convert => 'jpg'
-  process :tags => ['natpage']
+  process convert: 'jpg'
+  process tags: ['natpage']
   # process :scale => [200, 300]
   #
   # def scale(width, height)
@@ -51,5 +50,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
