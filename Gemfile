@@ -24,6 +24,8 @@ gem 'acts_as_list'
 gem 'active_admin-sortable_tree'
 gem 'tinymce-rails'
 
+gem 'loofah', '>= 2.2.3'
+gem 'sprockets', '>= 3.7.2'
 
 group :development, :test do
   gem 'binding_of_caller'
