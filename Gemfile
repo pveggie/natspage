@@ -26,6 +26,7 @@ gem 'tinymce-rails'
 
 gem 'loofah', '>= 2.2.3'
 gem 'sprockets', '>= 3.7.2'
+gem "ffi", ">= 1.9.24"
 
 group :development, :test do
   gem 'binding_of_caller'
