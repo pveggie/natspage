@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'rails', '~> 4.2.10'
+gem 'rails', '~> 4.2', '>= 4.2.11'
 gem 'puma'
 gem "pg", "~> 0.18"
 gem 'figaro'
@@ -15,18 +15,14 @@ gem 'uglifier'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '~> 8.1.0'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'isotope-rails'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.4', '>= 1.4.3'
 gem 'acts_as_list'
 gem 'active_admin-sortable_tree'
 gem 'tinymce-rails'
-
-gem 'loofah', '>= 2.2.3'
-gem 'sprockets', '>= 3.7.2'
-gem "ffi", ">= 1.9.24"
 
 group :development, :test do
   gem 'binding_of_caller'
